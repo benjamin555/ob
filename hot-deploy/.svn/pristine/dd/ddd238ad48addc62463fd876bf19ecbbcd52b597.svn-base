@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Example Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+	<service name="createPracticePerson" default-entity-name="Person"
+		engine="simple"
+		location="component://practice/script/org/hotwax/practice/PracticeServices.xml"
+		invoke="createPracticePerson" auth="true">
+		<description>Create a Person</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<attribute name="salutation" mode="IN" type="String"
+			optional="true" />
+		<attribute name="firstName" mode="IN" type="String"
+			optional="false" />
+		<attribute name="middleName" mode="IN" type="String"
+			optional="true" />
+		<attribute name="lastName" mode="IN" type="String" optional="false" />
+		<attribute name="suffix" mode="IN" type="String" optional="true" />
+	</service>
+	
+	<service name="updatePracticePerson" default-entity-name="Person"
+		engine="simple"
+		location="component://practice/script/org/hotwax/practice/PracticeServices.xml"
+		invoke="updatePracticePerson" auth="true">
+		<description>Create a Person</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<attribute name="salutation" mode="IN" type="String"
+			optional="true" />
+		<attribute name="firstName" mode="IN" type="String"
+			optional="false" />
+		<attribute name="middleName" mode="IN" type="String"
+			optional="true" />
+		<attribute name="lastName" mode="IN" type="String" optional="false" />
+		<attribute name="suffix" mode="IN" type="String" optional="true" />
+	</service>
+</services>

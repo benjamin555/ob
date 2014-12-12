@@ -1,0 +1,28 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+
+	<entity entity-name="HelloPerson" package-name="com.accenture.bj"
+		title="My New Entity">
+		<field name="id" type="id-ne" />
+		<field name="firstName" type="id" />
+		<field name="middleName" type="id" />
+		<field name="lastName" type="id" />
+		<prim-key field="id" />
+		<relation rel-entity-name="HelloContact" type="many">
+			<key-map field-name="id" rel-field-name="personId" />
+		</relation>
+	</entity>
+	
+	<entity entity-name="HelloContact" package-name="com.accenture.bj"
+		title="My New Entity">
+		<field name="id" type="id-ne" />
+		<field name="type" type="id" />
+		<field name="description" type="id" />
+		<field name="personId" type="id-ne" />
+		<prim-key field="id" />
+		<relation rel-entity-name="HelloPerson" type="one">
+			<key-map field-name="personId" rel-field-name="id" />
+		</relation>
+	</entity>
+
+</entitymodel>

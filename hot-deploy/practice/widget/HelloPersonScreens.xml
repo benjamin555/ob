@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="forCreateHelloPerson">
+		<section>
+			<widgets>
+				<decorator-screen name="CommonPracticeDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<label text="forCreateHelloPerson" style="h2" />
+						<include-form name="CreatePerson"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="forUpdateHelloPerson">
+		<section>
+			<actions>
+				<entity-one value-field="helloPerson" entity-name="HelloPerson"  >
+				</entity-one>
+				<get-related relation-name="HelloContact" list="contacts" value-field="helloPerson"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonPracticeDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<label text="forUpdateHelloPerson" style="h2" />
+						<include-form name="updateHelloPerson"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+						<include-form name="updateHelloContact"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+
+
+
+	<screen name="listHelloPerson">
+		<section>
+			<actions>
+				<service service-name="listHelloPerson"></service>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonPracticeDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="title">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://practice/webapp/practice/hello/header.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					<decorator-section name="body">
+						<label text="Person List" style="h2" />
+						<include-form name="HelloPersonQueryForm"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+						<include-form name="HelloPersons"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="detailHelloPerson">
+		<section>
+			<actions>
+				<service service-name="detailHelloPerson"></service>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonPracticeDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<label text="detailHelloPerson" style="h2" />
+						<include-form name="detailHelloPerson"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+						<include-form name="HelloContactListForm"
+							location="component://practice/widget/HelloPersonForms.xml"></include-form>
+						<link  style="smallSubmit" text="update" link-type="auto" target="forUpdateHelloPerson"  >
+							<parameter param-name="id" value="${parameters.id}"/>
+						</link>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

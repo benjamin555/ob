@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/custom.css">
+    <link rel="stylesheet" href="../stylesheets/jquery.treetable.css">
+    <link rel="stylesheet" href="../stylesheets/jquery.treetable.theme.default.css">
+    <script type="text/javascript" src="../js/require.js"></script>
+    <title>中国海油物料超市</title>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	    <div class="container-fluid">
+	        <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </a>
+	        <!-- <a href="#" class="brand">中国海油物料超市</a> -->
+	        <div class="nav-collapse collapse navbar-responsive-collapse">
+	            <ul class="nav">
+	                <li id="nav-sales"><a href="../sales/salescustomer.html">销售</a></li>
+	                <li id="nav-product"><a href="../product/prodCategory.html">产品</a></li>
+	                <li id="nav-logistics"><a href="../logistics/logisticsreceive.html">库存</a></li>
+	                <li id="nav-procurement"><a href="../procurement/supplier.html">采购</a></li>
+	                <li id="nav-report"><a href="#">报表</a></li>
+	                <li id="nav-setting"><a href="../setting/settingcompany.html">设置</a></li>
+	            </ul>
+	            <ul class="nav pull-right" id="nav-user">
+	                <li>
+	                    <a href="#">用户: Administrator</a>
+	                </li>
+	                <li class="divider-vertical">
+	                </li>
+	                <li class="dropdown">
+	                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">选项<strong class="caret"></strong></a>
+	                    <ul class="dropdown-menu">
+	                        <li>
+	                            <a href="#">Item 1</a>
+	                        </li>
+	                        <li>
+	                            <a href="#">Item 2</a>
+	                        </li>
+	                        <li>
+	                            <a href="#">Others</a>
+	                        </li>
+	                        <li class="divider">
+	                        </li>
+	                        <li>
+	                            <a href="#">Link 3</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<div class="container-fluid">
+		<div class="span2">
+			<img src="../img/company-logo-1.png">
+			<div class="well sidebar-nav" id="menus">
+			    <ul class="nav nav-list" id="menu-sales" style="display: none;">
+			        <li class="nav-header">销售</li>
+			        <li id="menu-sales-client"><a href="#">客户<span class="badge pull-right">1</span></a></li>
+			        <li id="menu-sales-longtermcontracts"><a href="#">长期协议</a></li>
+			        <li id="menu-sales-saleorder"><a href="#">销售订单<span class="badge pull-right">1</span></a></li>
+			        <li class="nav-header">对账</li>
+			        <li id="menu-sales-goodsissue"><a href="#">销售对账</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-setting" style="display: none;">
+			        <li class="nav-header"> 公司 </li>
+			        <li id="menu-setting-company"><a href="..\setting\settingcompany.html">公司</a></li>
+			        <li class="nav-header"> 用户 </li>
+			        <li id="menu-setting-user"><a href="..\setting\settinguser.html">用户</a></li>
+			        <li id="menu-setting-usergroup"><a href="..\setting\settingusergroup.html">权限组</a></li>
+			        <!-- <li class="nav-header">产品</li>
+					<li id="menu-setting-prodfeature"><a href="./settingProdFeature.html">属性</a></li>
+					<li id="menu-setting-prodcategory"><a href="./settingProdCategory.html">类别</a></li>
+					<li id="menu-setting-product"><a href="./settingProduct.html">产品</a></li>
+					<li id="menu-setting-prodpics"><a href="./settingProdPic.html">图库</a></li> -->
+			    </ul>
+			    <ul class="nav nav-list" id="menu-logistics" style="display: none;">
+			        <li class="nav-header"> 收货 </li>
+			        <li id="menu-logistics-receive"><a href="#">入库单</a></li>
+			        <li class="nav-header"> 发货 </li>
+			        <li id="menu-logistics-deliveryorder"><a href="#">出库单</a></li>
+			        <li class="nav-header"> 移库 </li>
+			        <li id="menu-logistics-move"><a href="#">移库单</a></li>
+			        <li class="nav-header"> 盘点 </li>
+			        <li id="menu-logistics-makeinventory"><a href="#">实物盘点</a></li>
+<!-- 			        <li class="nav-header"> 产品 </li>
+			        <li id="menu-logistics-product"><a href="#">产品类别</a></li>
+			        <li id="menu-logistics-producttype"><a href="#">产品</a></li>
+			        <li class="nav-header"> 设置 </li>
+			        <li id="menu-logistics-warehouse"><a href="#">仓库</a></li>
+			        <li id="menu-logistics-position"><a href="#">仓位</a></li>
+			        <li id="menu-logistics-rules"><a href="#">再订购规则</a></li>
+ -->			    
+				</ul>
+			    <ul class="nav nav-list" id="menu-procurement" style="display: none;">
+			        <li class="nav-header"> 采购 </li>
+			        <li id="menu-procurement-supplier"><a href="#">供应商</a></li>
+			        <li id="menu-procurement-contract"><a href="#">供货协议</a></li>
+			        <li id="menu-procurement-supplier"><a href="#">采购订单</a></li>
+			        <li class="nav-header"> MRP </li>
+			        <li id="menu-procurement-mrp"><a href="#">计划运行</a></li>
+			        <li class="nav-header"> 产品 </li>
+			        <li id="menu-procurement-producttype"><a href="#">产品类别</a></li>
+			        <li id="menu-procurement-product"><a href="#">产品</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-procurement" style="display: none;">
+			        <li class="nav-header"> 销售 </li>
+			        <li id="menu-report-salesanalysis"><a href="#">销售分析</a></li>
+			        <li class="nav-header"> 库存 </li>
+			        <li id="menu-report-inventoryanalysis"><a href="#">库存分析</a></li>
+			        <li class="nav-header"> 采购 </li>
+			        <li id="menu-report-procurementanalysis"><a href="#">采购分析</a></li>
+			    </ul>
+			</div>
+		</div>
+		<div class="span10">
+			<div class="page-header container-fluid">
+			    <div class="row-fluid">
+			        <div class="span8">
+			            <span id="content-title" style="font-size: 24px;"></span>
+			        </div>
+			        <div class="span4 list-content">
+			            <input type="text" class="search-query" placeholder="Search">
+			        </div>
+			    </div>
+			    <div class="row-fluid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			    <div class="row-fluid">
+			        <div class="span6">
+		                <div class="list-content">
+		                    <button class="btn btn-small btn-danger" id="createbutton1"><i class="icon-pencil"></i>创建</button>
+		                    <button class="btn btn-small"><i class="icon-arrow-up"></i> 导入 </button>
+		                    <div class="btn-group">
+								<a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+									<i class="icon-print"></i>
+									打印 
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">打印所选</a></li>
+									<li><a href="#">打印全部</a></li>
+								</ul>
+							</div>
+				            <div class="btn-group" style="margin-left:0px;">
+								<a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+									<i class="icon-cog"></i>
+									更多 
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">删除</a></li>
+								</ul>
+							</div>
+		                </div>
+		                <div class="new-content update-content">
+		                    <button class="btn btn-small btn-danger" id="savebutton"><i class="icon-ok"></i>保存</button>
+				       		<button class="btn btn-small" id="discardbutton"><i class="icon-remove"></i>放弃</button>
+		                </div>
+		                <div class="detail-content">
+		                    <button class="btn btn-small" id="updatebutton"><i class="icon-edit"></i> 编辑</button>
+		                    <button class="btn btn-small" id="createbutton"><i class="icon-pencil"></i> 创建</button>
+		                    <button class="btn btn-small" id="printbutton"><i class="icon-print"></i> 打印</button>
+				            <div class="btn-group">
+								<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+									<i class="icon-cog"></i>
+									更多 
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">导入</a></li>
+									<li><a href="#">删除</a></li>
+								</ul>
+							</div>
+		                </div>
+				    </div>
+				    <div class="span4">
+						<div class="detail-content" style="float:right">
+	        				<button class="btn btn-small"><i class="icon-chevron-left"></i></button>
+	        				&nbsp;&nbsp;1/3&nbsp;&nbsp;
+	        				<button class="btn btn-small"><i class="icon-chevron-right"></i></button>
+        				</div>
+        			</div>
+			        <div class="span2">
+			        	<div class="list-content detail-content">
+				            <div class="btn-group" data-toggle="buttons-radio">
+					            <abbr title="显示列表"><button class="btn active btn-small" id="showlist" data-toggle="tooltip"><i class="icon-list"></i></button></abbr>
+								<abbr title="查看详情"><button class="btn btn-small" id="showdetail" data-toggle="tooltip"><i class="icon-resize-full"></i></button></abbr>
+				            </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+			<input type="hidden" value="usergroup" id="currentpage">
+			<input type="hidden" value="setting" id="currentmenu">
+			<input type="hidden" value="权限组" id="thistitle">
+			<div class="list-content">
+			    <table class="table table-hover table-condensed" id="catetable3">
+			        <thead>
+						<tr>
+							<th><input type="checkbox"></th>
+							<th>权限组</th>
+							<th>描述</th>
+						</tr>
+			        </thead>
+			        <tbody>
+			            <tr data-tt-id="1">
+			                <td><input type="checkbox"></td>
+			                <td>销售</td>
+			                <td>sale</td>
+			            </tr>
+						<tr data-tt-id="11" data-tt-parent-id="1">
+			                <td><input type="checkbox"></td>
+			                <td><a data-toggle="tab" id="userInfoExam1Tab">主管</a></td>
+			                <td>sale manager</td>
+			            </tr>
+						<tr data-tt-id="111" data-tt-parent-id="1">
+			                <td><input type="checkbox"></td>
+			                <td><a data-toggle="tab" id="userInfoExam2Tab">雇员</a></td>
+			                <td>employee</td>
+			            </tr>
+						<tr data-tt-id="2">
+			                <td><input type="checkbox"></td>
+			                <td>采购</td>
+			                <td>purchase</td>
+			            </tr>
+						<tr data-tt-id="22" data-tt-parent-id="2">
+			                <td><input type="checkbox"></td>
+			                <td><a>主管</a></td>
+			                <td>purchase manager</td>
+			            </tr>
+						<tr data-tt-id="222" data-tt-parent-id="2">
+			                <td><input type="checkbox"></td>
+			                <td><a>雇员</a></td>
+			                <td>employee</td>
+			            </tr>
+			            <tr data-tt-id="3">
+			                <td><input type="checkbox"></td>
+			                <td>仓库</td>
+			                <td>storage</td>
+			            </tr>
+						<tr data-tt-id="33" data-tt-parent-id="3">
+			                <td><input type="checkbox"></td>
+			                <td><a>主管</a></td>
+			                <td>storage manager</td>
+			            </tr>
+						<tr data-tt-id="333" data-tt-parent-id="3">
+			                <td><input type="checkbox"></td>
+			                <td><a>雇员</a></td>
+			                <td>employee</td>
+			            </tr>
+			        </tbody>
+			    </table>
+			</div>
+			<div class="detail-content">
+				<br/>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">权限组</div></div>
+					<div class="span4">
+						销售_主管
+					</div>
+					<div class="span2"><div style="float:right">描述</div></div>
+					<div class="span4">
+						sale manager
+					</div>
+				</div>
+				<br/>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" id="addsecurityTab2">权限</a></li>
+				</ul>
+				<div name="addsecurity2" style="display: block;" id="addsecurityDiv2">
+					<table class="table table-hover table-condensed" id="catetable2">
+						<thead>
+							<tr>
+								<th><input type="checkbox"></th>
+								<th>权限</th>
+								<th>描述</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-tt-id="1">
+								<td><input name="radiogroup" type="checkbox" checked="checked"></td>
+								<td>ORDER</td>
+								<td>order</td>
+							</tr>
+							<tr data-tt-id="11" data-tt-parent-id="1">
+								<td><input name="radiogroup" type="checkbox" checked="checked"></td>
+								<td>ORDER_UPDATE</td>
+								<td>order update</td>
+							</tr>
+							<tr data-tt-id="111" data-tt-parent-id="1">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>ORDER_CREATE</td>
+								<td>order create</td>
+							</tr>
+							<tr data-tt-id="2">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>PRODUCT</td>
+								<td>product</td>
+							</tr>
+							<tr data-tt-id="22" data-tt-parent-id="2">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>PRODUCT_UPDATE</td>
+								<td>product update</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="new-content">
+				<div class="row-fluid">
+					<div class="span5 offset1">
+						权限组
+					</div>
+					<div class="span5">
+						描述
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span5 offset1">
+						<input class="span12" type="text" placeholder ="e.g. ORDER_ADMIN"/>
+					</div>
+					<div class="span5">
+						<input class="span12" type="text" placeholder ="e.g. order all"/>
+					</div>
+				</div>
+				<br/>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" id="addsecurityTab">权限</a></li>
+				</ul>
+				<div name="addsecurity" style="display: block;" id="addsecurityDiv">
+					<table class="table table-hover table-condensed" id="catetable">
+						<thead>
+							<tr>
+								<th><input type="checkbox"></th>
+								<th>权限</th>
+								<th>描述</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-tt-id="1">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>ORDER</td>
+								<td>order</td>
+							</tr>
+							<tr data-tt-id="11" data-tt-parent-id="1">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>ORDER_UPDATE</td>
+								<td>order update</td>
+							</tr>
+							<tr data-tt-id="111" data-tt-parent-id="1">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>ORDER_CREATE</td>
+								<td>order create</td>
+							</tr>
+							<tr data-tt-id="2">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>PRODUCT</td>
+								<td>product</td>
+							</tr>
+							<tr data-tt-id="22" data-tt-parent-id="2">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>PRODUCT_UPDATE</td>
+								<td>product update</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="update-content">
+				<div class="row-fluid">
+					<div class="span5 offset1">
+						权限组
+					</div>
+					<div class="span5">
+						描述
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span5 offset1">
+						<input class="span12" type="text" placeholder ="e.g. ORDER_ADMIN" value="ORDER_ADMIN"/>
+					</div>
+					<div class="span5">
+						<input class="span12" type="text" placeholder ="e.g. order all" value="order all"/>
+					</div>
+				</div>
+				<br/>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" id="addsecurityTab1">权限</a></li>
+				</ul>
+				<div name="addsecurity1" style="display: block;" id="addsecurityDiv1">
+					<table class="table table-hover table-condensed" id="catetable1">
+						<thead>
+							<tr>
+								<th><input type="checkbox"></th>
+								<th>权限</th>
+								<th>描述</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-tt-id="1">
+								<td><input name="radiogroup" type="checkbox" checked="checked"></td>
+								<td>ORDER</td>
+								<td>order</td>
+							</tr>
+							<tr data-tt-id="11" data-tt-parent-id="1">
+								<td><input name="radiogroup" type="checkbox" checked="checked"></td>
+								<td>ORDER_UPDATE</td>
+								<td>order update</td>
+							</tr>
+							<tr data-tt-id="111" data-tt-parent-id="1">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>ORDER_CREATE</td>
+								<td>order create</td>
+							</tr>
+							<tr data-tt-id="2">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>PRODUCT</td>
+								<td>product</td>
+							</tr>
+							<tr data-tt-id="22" data-tt-parent-id="2">
+								<td><input name="radiogroup" type="checkbox"></td>
+								<td>PRODUCT_UPDATE</td>
+								<td>product update</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	    require(["jquery", "domReady!"], function($){
+	    	// Initialize common buttons and views
+	    	var currentview = "";
+	    	var showview = function(view){
+	        	$(".detail-content").css("display", "none");
+	        	$(".new-content").css("display", "none");
+	            $(".list-content").css("display", "none");
+	            $(".update-content").css("display", "none");
+	            $("." + view + "-content").css("display", "block");
+	            currentview = view;
+	    	};
+	        var showlist = function(){
+	        	showview("list");
+	        	document.getElementById("showlist").className="btn active btn-small";	    		
+	    		document.getElementById("showdetail").className="btn btn-small";
+	        };
+	        var showdetail = function(){
+	        	showview("detail");
+	        	document.getElementById("showlist").className="btn btn-small";	    		
+	    		document.getElementById("showdetail").className="btn active btn-small";
+	    		$("#securityInfoDiv2").css("display", "block");
+	        };
+	        var shownew = function(){
+	        	showview("new");
+	        };
+	        var showupdate = function(){
+	        	showview("update");
+	        	$("#addsecurityDiv1").css("display", "block");
+	        };
+	        $("#content-title").html($("#thistitle").val());
+	        $("#showlist").on("click", showlist);
+	        $("#showdetail").on("click", showdetail);
+	        $("#createbutton").on("click", shownew);
+	        $("#createbutton1").on("click", shownew);
+	        $("#discardbutton").on("click", showlist);
+	        $("#savebutton").on("click", showdetail);
+	        $("#updatebutton").on("click", showupdate);
+	        showlist();
+
+			//创建权限组
+			$("#addsecurityTab").on("click", function(){
+				$("#addsecurityDiv").css("display", "block");
+			});
+			//detail的显示权限组
+			$("#addsecurityTab2").on("click", function(){
+				$("#addsecurityDiv2").css("display", "block");
+			});
+			//update的显示权限组
+			$("#addsecurityTab1").on("click", function(){
+				$("#addsecurityDiv1").css("display", "block");
+			});
+			
+			//点击用户名-快速显示明细
+			$("#userInfoExam1Tab").on("click", function(){
+				showdetail();
+			});
+			//点击用户名-快速显示明细
+			$("#userInfoExam2Tab").on("click", function(){
+				showdetail();
+			});
+	    });
+	    
+	    require(["jquery", "treetable", "domReady!"], function($){
+	    	$("#catetable").treetable({ expandable: true ,column:1});
+	    });
+	    require(["jquery", "treetable", "domReady!"], function($){
+	    	$("#catetable1").treetable({ expandable: true ,column:1});
+	    });
+	    require(["jquery", "treetable", "domReady!"], function($){
+	    	$("#catetable2").treetable({ expandable: true ,column:1});
+	    });
+	    require(["jquery", "treetable", "domReady!"], function($){
+	    	$("#catetable3").treetable({ expandable: true ,column:1});
+	    });
+	</script>
+	<div id="foot">
+	    <script type="text/javascript" src="../js/commonactions.js"></script>
+	</div>
+</body>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<screen name="main">
+		<section>
+			<widgets>
+				<label text="This is first practice" />
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="person">
+		<section>
+			<actions>
+				<script
+					location="component://practice/webapp/practice/WEB-INF/actions/Person.groovy" />
+			</actions>
+			<widgets>
+				
+				<decorator-screen name="CommonPracticeDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://practice/webapp/practice/Person.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+
+	<screen name="PersonForm">
+		<section>
+			<actions>
+				<set field="headerItem" value="personForm" />
+				<set field="titleProperty" value="PageTitlePracticePersonForm" />
+				<entity-condition entity-name="Person" list="persons" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonPracticeDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<label text="Person List" style="h2" />
+						<include-form name="ListPersons"
+							location="component://practice/widget/PracticeForms.xml"></include-form>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="commontree">
+        <section>
+            <widgets>
+            <screenlet id="ProductBrowseCategoriesPanel" title="${uiLabelMap.ProductBrowseCatalogeAndCategories}" collapsible="true">
+                    <container id="EditDocumentTree"/>
+						<platform-specific>
+							<html>
+								<html-template location="component://practice/webapp/practice/tree.ftl" />
+							</html>
+						</platform-specific>                </screenlet>
+           
+            </widgets>
+        </section>
+    </screen>
+</screens>

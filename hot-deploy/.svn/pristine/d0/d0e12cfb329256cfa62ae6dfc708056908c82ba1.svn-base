@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="practice"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+	<resource-loader name="main" type="component" />
+	<service-resource type="model" loader="main" location="servicedef/services.xml"/>
+	<classpath type="dir" location="config"/>
+	<webapp name="practice" title="Practice" server="default-server"
+		base-permission="OFBTOOLS" location="webapp/practice" mount-point="/practice"
+		app-bar-display="true" />
+</ofbiz-component>

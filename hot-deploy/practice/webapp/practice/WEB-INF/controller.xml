@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<description>Practice Component Site Configuration File</description>
+	<owner>Copyright 2001-2009 The Apache Software Foundation</owner>
+	<handler name="screen" type="view"
+		class="org.ofbiz.widget.screen.ScreenWidgetViewHandler" /> <!-- Request Mappings -->
+	<request-map uri="main">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="main" />
+	</request-map>
+	
+	<request-map uri="forCreateHelloPerson">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="forCreateHelloPerson" />
+	</request-map>
+	
+	<request-map uri="forUpdateHelloPerson">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="forUpdateHelloPerson" />
+	</request-map>
+	
+	
+	<request-map uri="createHelloPerson">
+		<security https="false" auth="false" />
+		<event type="service" invoke="createHelloPerson" />
+		<response name="success" type="view" value="forCreateHelloPerson" />
+	</request-map>
+	
+	
+	<request-map uri="updateHelloPerson">
+		<security https="false" auth="false" />
+		<event type="service" invoke="updateHelloPerson" />
+		<response name="success" type="view" value="listHelloPerson" />
+	</request-map>
+	
+	<request-map uri="listHelloPerson">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="listHelloPerson" />
+	</request-map>
+	
+	
+	<request-map uri="delHelloPerson">
+		<security https="false" auth="false" />
+		<event type="service" invoke="delHelloPerson" />
+		<response name="success" type="view" value="listHelloPerson" />
+	</request-map>
+	
+	<request-map uri="detailHelloPerson">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="detailHelloPerson" />
+	</request-map>
+	
+	<!-- end of request mappings -->
+	<!-- View Mappings -->
+	<view-map name="main" type="screen"
+		page="component://practice/widget/PracticeScreens.xml#main" />
+		
+		
+	<view-map name="forCreateHelloPerson" type="screen"
+		page="component://practice/widget/HelloPersonScreens.xml#forCreateHelloPerson" />
+	<view-map name="forUpdateHelloPerson" type="screen"
+		page="component://practice/widget/HelloPersonScreens.xml#forUpdateHelloPerson" />
+	<view-map name="listHelloPerson" type="screen"
+		page="component://practice/widget/HelloPersonScreens.xml#listHelloPerson" />
+	<view-map name="detailHelloPerson" type="screen"
+		page="component://practice/widget/HelloPersonScreens.xml#detailHelloPerson" />
+	<!-- end of view mappings -->
+</site-conf>

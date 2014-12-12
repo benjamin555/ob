@@ -1,0 +1,29 @@
+package com.accenture.bj.common.tree;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.util.Assert;
+
+import com.accenture.bj.common.ExampleServices;
+
+/**
+* @author 陈嘉镇
+* @version 创建时间：2014-1-10 下午2:13:09
+*/
+public class TreeableFactory {
+	
+	private static Map<String, ITreeable> map ;
+	
+	static{
+		map = new HashMap<String, ITreeable>();
+		map.put("Category", new ExampleServices());
+	}
+
+	public static ITreeable get(String treeKey) {
+		ITreeable treeable = map.get(treeKey);
+		Assert.notNull(treeable,"根据该key,无法获取服务对象。"+treeKey);
+		return treeable;
+	}
+
+}

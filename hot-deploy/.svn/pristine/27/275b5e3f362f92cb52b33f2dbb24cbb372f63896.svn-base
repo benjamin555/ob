@@ -1,0 +1,144 @@
+/*Progress Bar Styles*/
+.ebiz {
+font-family: "Lucida Grande", Helvetica, Verdana, Arial, sans-serif;
+color: #4c4c4c;
+font-size: 13px;
+text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+padding-bottom: 30px;
+}
+.ebiz ul.oe_form_status, .ebiz ul.oe_form_status_clickable {
+  display: inline-block;
+  margin: 0;
+  padding: 0 18px 0 0;
+}
+.ebiz ul.oe_form_status li, .ebiz ul.oe_form_status_clickable li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 -18px 0 0;
+  padding: 0;
+  line-height: 16px;
+  background-color: #ededed;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#dedede));
+  background-image: -webkit-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: -moz-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: -ms-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: -o-linear-gradient(top, #fcfcfc, #dedede);
+  background-image: linear-gradient(to bottom, #fcfcfc, #dedede);
+}
+.ebiz ul.oe_form_status li:first-child .oe_label, .ebiz ul.oe_form_status_clickable li:first-child .oe_label {
+  border-left: 1px solid #cacaca;
+  padding-left: 14px;
+}
+.ebiz ul.oe_form_status li:last-child, .ebiz ul.oe_form_status_clickable li:last-child {
+  border-right: 1px solid #cacaca;
+}
+.ebiz ul.oe_form_status li:last-child .oe_label, .ebiz ul.oe_form_status_clickable li:last-child .oe_label {
+  padding-right: 14px;
+}
+.ebiz ul.oe_form_status li:last-child .oe_arrow, .ebiz ul.oe_form_status_clickable li:last-child .oe_arrow {
+  display: none;
+}
+.ebiz ul.oe_form_status li .oe_label, .ebiz ul.oe_form_status_clickable li .oe_label {
+  color: #4c4c4c;
+  text-shadow: 0 1px 1px #fcfcfc, 0 -1px 1px #dedede;
+  padding: 7px;
+  display: inline-block;
+  padding-left: 24px;
+  margin: 0;
+  position: relative;
+}
+.ebiz ul.oe_form_status li .oe_arrow, .ebiz ul.oe_form_status_clickable li .oe_arrow {
+  width: 17px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  margin-left: -5px;
+}
+.ebiz ul.oe_form_status li .oe_arrow span, .ebiz ul.oe_form_status_clickable li .oe_arrow span {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-left: -12px;
+  margin-top: 3px;
+  box-shadow: -1px 1px 2px rgba(255, 255, 255, 0.2), inset -1px 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #dedede;
+  background: -moz-linear-gradient(135deg, #dedede, #fcfcfc);
+  background: -o-linear-gradient(135deg, #fcfcfc, #dedede);
+  background: -webkit-gradient(linear, left top, right bottom, from(#fcfcfc), to(#dedede));
+  background: -ms-linear-gradient(top, #fcfcfc, #dedede);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.ebiz ul.oe_form_status li.oe_active, .ebiz ul.oe_form_status_clickable li.oe_active {
+  background-color: #5382b9;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#729fcf), to(#3465a4));
+  background-image: -webkit-linear-gradient(top, #729fcf, #3465a4);
+  background-image: -moz-linear-gradient(top, #729fcf, #3465a4);
+  background-image: -ms-linear-gradient(top, #729fcf, #3465a4);
+  background-image: -o-linear-gradient(top, #729fcf, #3465a4);
+  background-image: linear-gradient(to bottom, #729fcf, #3465a4);
+}
+.ebiz ul.oe_form_status li.oe_active .oe_arrow span, .ebiz ul.oe_form_status_clickable li.oe_active .oe_arrow span {
+  background-color: #3465a4;
+  background: -moz-linear-gradient(135deg, #3465a4, #729fcf);
+  background: -o-linear-gradient(135deg, #729fcf, #3465a4);
+  background: -webkit-gradient(linear, left top, right bottom, from(#729fcf), to(#3465a4));
+  background: -ms-linear-gradient(top, #729fcf, #3465a4);
+}
+.ebiz ul.oe_form_status li.oe_active .oe_label, .ebiz ul.oe_form_status_clickable li.oe_active .oe_label {
+  color: white;
+  text-shadow: 0 1px 1px #729fcf, 0 -1px 1px #3465a4;
+}
+.ebiz ul.oe_form_status_clickable li {
+  cursor: pointer;
+}
+.ebiz ul.oe_form_status_clickable li:hover {
+  background-color: #d9d9d9;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#cacaca));
+  background-image: -webkit-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: -moz-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: -ms-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: -o-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: linear-gradient(to bottom, #e8e8e8, #cacaca);
+}
+.ebiz ul.oe_form_status_clickable li:hover .oe_label {
+  text-shadow: 0 -1px 1px #fcfcfc, 0 1px 1px #dedede;
+}
+.ebiz ul.oe_form_status_clickable li:hover .oe_arrow span {
+  background-color: #d9d9d9;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#cacaca));
+  background-image: -webkit-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: -moz-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: -ms-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: -o-linear-gradient(top, #e8e8e8, #cacaca);
+  background-image: linear-gradient(to bottom, #e8e8e8, #cacaca);
+}
+.ebiz ul.oe_form_status_clickable li .oe_label {
+  color: #7c7bad;
+}
+.ebiz ul.oe_form_status_clickable li.oe_active:hover {
+  background-color: #3a699f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4c85c2), to(#284d7d));
+  background-image: -webkit-linear-gradient(top, #4c85c2, #284d7d);
+  background-image: -moz-linear-gradient(top, #4c85c2, #284d7d);
+  background-image: -ms-linear-gradient(top, #4c85c2, #284d7d);
+  background-image: -o-linear-gradient(top, #4c85c2, #284d7d);
+  background-image: linear-gradient(to bottom, #4c85c2, #284d7d);
+}
+.ebiz ul.oe_form_status_clickable li.oe_active:hover .oe_label {
+  text-shadow: 0 -1px 1px #729fcf, 0 1px 1px #3465a4;
+}
+.ebiz ul.oe_form_status_clickable li.oe_active:hover .oe_arrow span {
+  background-color: #284d7d;
+  background: -moz-linear-gradient(135deg, #284d7d, #4c85c2);
+  background: -o-linear-gradient(135deg, #4c85c2, #284d7d);
+  background: -webkit-gradient(linear, left top, right bottom, from(#4c85c2), to(#284d7d));
+  background: -ms-linear-gradient(top, #4c85c2, #284d7d);
+ }

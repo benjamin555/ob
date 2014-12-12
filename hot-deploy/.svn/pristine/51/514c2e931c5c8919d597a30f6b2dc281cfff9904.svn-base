@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="../bootstrap/css/custom.css">    
+    <script type="text/javascript" src="../js/require.js"></script>
+    <title>中国海油物料超市</title>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	    <div class="container-fluid">
+	        <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </a>
+	        <!-- <a href="#" class="brand">中国海油物料超市</a> -->
+	        <div class="nav-collapse collapse navbar-responsive-collapse">
+	            <ul class="nav">
+	                <li id="nav-sales"><a href="../sales/salescustomer.html">销售</a></li>
+	                <li id="nav-product"><a href="../product/prodCategory.html">产品</a></li>
+	                <li id="nav-logistics"><a href="../logistics/logisticsreceive.html">库存</a></li>
+	                <li id="nav-procurement"><a href="../procurement/supplier.html">采购</a></li>
+	                <li id="nav-report"><a href="#">报表</a></li>
+	                <li id="nav-setting"><a href="../setting/settingcompany.html">设置</a></li>
+	            </ul>
+	            <ul class="nav pull-right" id="nav-user">
+	                <li>
+	                    <a href="#">用户: Administrator</a>
+	                </li>
+	                <li class="divider-vertical">
+	                </li>
+	                <li class="dropdown">
+	                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">选项<strong class="caret"></strong></a>
+	                    <ul class="dropdown-menu">
+	                        <li>
+	                            <a href="#">Item 1</a>
+	                        </li>
+	                        <li>
+	                            <a href="#">Item 2</a>
+	                        </li>
+	                        <li>
+	                            <a href="#">Others</a>
+	                        </li>
+	                        <li class="divider">
+	                        </li>
+	                        <li>
+	                            <a href="#">Link 3</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<div class="container-fluid">
+		<div class="span2">
+			<img src="../img/company-logo-1.png">
+			<div class="well sidebar-nav" id="menus">
+			    <ul class="nav nav-list" id="menu-sales" style="display: none;">
+			        <li class="nav-header">销售</li>
+			        <li id="menu-sales-client"><a href="./salescustomer.html">客户<span class="badge pull-right">1</span></a></li>
+			        <li id="menu-sales-longtermcontracts"><a href="./salesagreement.html">销售协议</a></li>
+			        <li id="menu-sales-saleorder"><a href="./salesorder.html">销售订单</a></li>
+			        <li id="menu-sales-saleorder"><a href="./salesreturn.html">销售退货</a></li>
+			        <li class="nav-header">对账</li>
+			        <li id="menu-sales-goodsissue"><a href="./salescheck.html">销售对账</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-setting" style="display: none;">
+			        <li class="nav-header"> 公司 </li>
+			        <li id="menu-setting-company"><a href="#">公司</a></li>
+			        <li class="nav-header"> 用户 </li>
+			        <li id="menu-setting-user"><a href="#">用户</a></li>
+			        <li id="menu-setting-usergroup"><a href="#">用户组</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-logistics" style="display: none;">
+			        <li class="nav-header"> 收货 </li>
+			        <li id="menu-logistics-receive"><a href="#">入库单</a></li>
+			        <li class="nav-header"> 发货 </li>
+			        <li id="menu-logistics-deliveryorder"><a href="#">出库单</a></li>
+			        <li class="nav-header"> 移库 </li>
+			        <li id="menu-logistics-move"><a href="#">移库单</a></li>
+			        <li class="nav-header"> 盘点 </li>
+			        <li id="menu-logistics-makeinventory"><a href="#">实物盘点</a></li>
+<!-- 			        <li class="nav-header"> 产品 </li>
+			        <li id="menu-logistics-product"><a href="#">产品类别</a></li>
+			        <li id="menu-logistics-producttype"><a href="#">产品</a></li>
+			        <li class="nav-header"> 设置 </li>
+			        <li id="menu-logistics-warehouse"><a href="#">仓库</a></li>
+			        <li id="menu-logistics-position"><a href="#">仓位</a></li>
+			        <li id="menu-logistics-rules"><a href="#">再订购规则</a></li>
+ -->			    
+				</ul>
+			    <ul class="nav nav-list" id="menu-procurement" style="display: none;">
+			        <li class="nav-header"> 采购 </li>
+			        <li id="menu-procurement-supplier"><a href="#">供应商</a></li>
+			        <li id="menu-procurement-contract"><a href="#">供货协议</a></li>
+			        <li id="menu-procurement-supplier"><a href="#">采购订单</a></li>
+			        <li class="nav-header"> MRP </li>
+			        <li id="menu-procurement-mrp"><a href="#">计划运行</a></li>
+			        <li class="nav-header"> 产品 </li>
+			        <li id="menu-procurement-producttype"><a href="#">产品类别</a></li>
+			        <li id="menu-procurement-product"><a href="#">产品</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-procurement" style="display: none;">
+			        <li class="nav-header"> 销售 </li>
+			        <li id="menu-report-salesanalysis"><a href="#">销售分析</a></li>
+			        <li class="nav-header"> 库存 </li>
+			        <li id="menu-report-inventoryanalysis"><a href="#">库存分析</a></li>
+			        <li class="nav-header"> 采购 </li>
+			        <li id="menu-report-procurementanalysis"><a href="#">采购分析</a></li>
+			    </ul>
+			</div>
+		</div>
+		<div class="span10">
+			<div class="page-header container-fluid">
+			    <div class="row-fluid">
+			        <div class="span8">
+			            <span id="content-title" style="font-size: 24px;"></span>
+			        </div>
+			        <div class="span4 list-content">
+			            <input type="text" class="search-query" placeholder="Search">
+			        </div>
+			    </div>
+			    <div class="row-fluid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			    <div class="row-fluid">
+			        <div class="span12">
+			            <div class="row-fluid">
+			                <div class="list-content detail-content">
+			                	<div class="span6">
+				                	<div class="list-content">
+<!--  
+					                    <button class="btn btn-primary btn-small" id="createbutton"><i class="icon-pencil"></i> 创建</button>
+-->
+					                    <button class="btn btn-small"><i class="icon-arrow-up"></i> 导入</button>
+					                    <button class="btn btn-small"><i class="icon-arrow-down"></i> 导出</button>
+						                <div class="btn-group">
+											<a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+												<i class="icon-print"></i>
+												打印 
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">打印所选</a></li>
+												<li><a href="#">打印全部</a></li>
+											</ul>
+										</div>
+							            <div class="btn-group" style="margin-left:0px;">
+											<a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+												<i class="icon-cog"></i>
+												更多 
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">删除</a></li>
+												<li><a href="#">更新</a></li>
+												<li><a href="#">其他</a></li>
+											</ul>
+										</div>
+									</div>
+				                	<div class="detail-content">
+					                    <button class="btn btn-small" id="editbutton"><i class="icon-edit"></i> 编辑</button>
+					                    <button class="btn btn-small" id="editbutton"><i class="icon-tags"></i> 更新</button>
+<!--  
+					                    <button class="btn btn-primary btn-small" id="createbuttons"><i class="icon-pencil"></i> 创建</button>
+-->
+						                <div class="btn-group">
+											<a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+												<i class="icon-print"></i>
+												打印 
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">打印所选</a></li>
+												<li><a href="#">打印全部</a></li>
+											</ul>
+										</div>
+							            <div class="btn-group" style="margin-left:0px;">
+											<a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+												<i class="icon-cog"></i>
+												更多 
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">删除</a></li>
+												<li><a href="#">其他</a></li>
+											</ul>
+										</div>
+									</div>								
+								</div>
+								<div class="span5">
+									<div class="detail-content" style="float:right">
+				        				<span>1/2&nbsp;&nbsp;</span>
+										<button class="btn btn-small"><i class="icon-arrow-left"></i></button>
+										<button class="btn btn-small"><i class="icon-arrow-right"></i></button>
+			        				</div>
+			        			</div>
+			        			<div class="span1">
+			        				<div style="float:right">
+							            <div class="span5 btn-group" data-toggle="buttons-radio">
+								            <abbr title="显示列表"><button class="btn active btn-small" id="showlist" data-toggle="tooltip"><i class="icon-list"></i></button></abbr>
+											<abbr title="查看详情"><button class="btn btn-small" id="showdetail" data-toggle="tooltip"><i class="icon-resize-full"></i></button></abbr>
+							            </div>
+						            </div>
+						        </div>
+						    </div>
+			                <div class="new-content">
+			                    <button class="btn btn-small btn-danger" id="savebutton"><i class="icon-ok"></i> 保存</button>
+			                    <button class="btn btn-small" id="discardbutton"><i class="icon-remove"></i> 放弃</button>
+			                </div>
+			                <div class="edit-content">
+			                    <button class="btn btn-small btn-danger" id="savebuttons"><i class="icon-ok"></i> 保存</button>
+			                    <button class="btn btn-small" id="discardbuttons"><i class="icon-remove"></i> 放弃</button>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+			<input type="hidden" value="client" id="currentpage">
+			<input type="hidden" value="sales" id="currentmenu">
+			<input type="hidden" value="客户" id="thistitle">
+			<div class="list-content">
+			    <table class="table table-hover table-condensed">
+			        <thead class="table">
+				        <tr>
+				        	<th><input type="checkbox"/></th>
+				            <th>公司名称</th>
+				            <th>地址</th>
+				            <th>固定电话</th>
+				            <th>移动电话</th>
+				            <th>网站</th>
+				        </tr>
+			        </thead>
+			        <tbody>
+			            <tr>
+				        	<td><input type="checkbox"/></td>
+			                <td><a id="listitem">中国海油集团(有限)公司深圳分公司</a></td>
+			                <td>中国广东省深圳市罗湖工业区</td>
+			                <td>0755 83638363</td>
+			                <td></td>
+			                <td><a>www.cnooc.com.cn</a></td>
+			            </tr>
+			            <tr>
+				        	<td><input type="checkbox"/></td>
+			                <td><a id="listitems">中国海油集团(有限)公司天津分公司</a></td>
+			                <td>中国天津市</td>
+			                <td></td>
+			                <td>135 98765432</td>
+			                <td><a>www.cnooc.com.cn</a></td>
+			            </tr>
+			        </tbody>
+			    </table>
+			    <div class="list-content">
+			    	<br/>
+			    	每页
+			    	<select type="text" style="width:50px;">
+			    		<option>10</option>
+			    		<option>20</option>
+			    		<option>50</option>
+			    	</select>
+			    	项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    	<a><i class="icon-fast-backward"></i></a>
+			    	<a><i class="icon-chevron-left"></i></a>
+					&nbsp;&nbsp;
+			        第 <input type="text" style="width:15px;" value="1" /> /1页
+					&nbsp;&nbsp;
+					<a><i class="icon-chevron-right"></i></a>
+					<a><i class="icon-fast-forward"></i></a>
+					<div style="float:right;">
+						显示1到2,共2记录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>		    
+			</div>
+			<div class="detail-content">			
+ 				<div class="row-fluid">
+					<div class="span1">
+						<img src="../img/cnooc.png">			
+					</div>
+					<div class="span7">
+						<div class="row-fluid">
+							<div><h3>中国海油集团(有限)公司深圳分公司</h3></div>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="row-fluid">
+					<div class="span2">
+						<div style="float:right">电话</div>
+					</div>
+					<div class="span4">
+					0755 83638363
+					</div>
+					<div class="span2">
+						<div style="float:right">网站</div>
+					</div>
+					<div class="span4">
+					www.cnooc.com.cn
+					</div>
+				</div>			
+				<div class="row-fluid">
+					<div class="span2">
+						<div style="float:right">传真</div>
+					</div>
+					<div class="span4">
+					0755 83638363
+					</div>
+				</div>	
+				<br/>				
+				<ul class="nav nav-tabs">
+					<li id="contactslidetail" class="active"><a onclick="tab('contacts','detail')">联系人</a></li>
+					<li id="addresslidetail"><a onclick="tab('address','detail')">地址</a></li>
+					<li id="agreementlidetail"><a onclick="tab('agreement','detail')">销售协议</a></li>
+					<li id="orderlidetail"><a onclick="tab('order','detail')">销售订单</a></li>
+					<li id="commentlidetail"><a onclick="tab('comment','detail')">备注</a></li>
+				</ul>
+				<div class="tab-content">		
+					<div class="tab-pane active" id="contactsdetail">
+						<div id="address_table" style="display: block">
+						    <table id="address_table" class="table table-condensed">
+						        <thead>
+							        <tr>
+							        	<th>姓名</th>
+							        	<th>账号</th>
+							        	<th>联系电话</th>
+				       				    <th>电子邮件</th>
+				       				    <th>地址</th>
+							        </tr>					        
+						        </thead>
+						        <tbody>
+						            <tr>
+						                <td>景泰</td>
+						                <td>jingtai</td>
+						                <td>138 12345678</td>
+						                <td>jtinfo@agrolait.com</td>
+						                <td>北京市东城区朝阳门大街</td>
+						            </tr>
+						            <tr>
+						                <td>成化</td>
+						                <td>chenghua</td>
+						                <td>138 12353258</td>
+						                <td>info@agrolait.com</td>
+						                <td>北京市海淀区五道口</td>
+						            </tr>
+						            <tr>
+						                <td>建文</td>
+						                <td>jianwen</td>
+						                <td>134 84738273</td>
+						                <td>jianwen123@agrolait.com</td>
+						                <td>北京市密云区密云水库</td>
+						            </tr>
+						        </tbody>
+					        </table>
+					    </div>
+					</div>
+					<div class="tab-pane" id="commentdetail">
+					统一发货地址为：北京市东城区朝阳门内大街2号凯恒中心
+					</div>
+					<div class="tab-pane" id="addressdetail">
+					    <table id="contacts_table" class="table table-hover table-condensed">
+					        <thead>
+						        <tr>
+						        	<th>地址类型</th>
+						        	<th>省/州</th>
+			       				    <th>市/区</th>
+			       				    <th>街道</th>
+			       				    <th>邮编</th>
+						        </tr>
+					        </thead>
+					        <tbody>
+						        <tr>
+						        	<td>支付地址</td>
+						        	<td>北京</td>
+						        	<td>海淀</td>
+			       				    <td>朝阳门内大街2号凯恒中心16层</td>
+			       				    <td>100000</td>		
+						        </tr>
+						        <tr>
+						        	<td>通信地址</td>
+						        	<td>Troy</td>
+						        	<td>MI</td>
+			       				    <td>N Lovinton Dr, Apt 203</td>
+			       				    <td>48083</td>	
+						        </tr>						        
+						        <tr>
+						        	<td>通信地址</td>
+						        	<td>广东</td>
+						        	<td>深圳</td>
+			       				    <td>市罗湖工业区</td>
+			       				    <td>999999</td>	
+						        </tr>						        
+					        </tbody>
+				        </table>
+					</div>
+					<div class="tab-pane" id="agreementdetail">
+					    <table class="table table-hover table-condensed">
+					        <thead>
+						        <tr>
+						            <th>协议编号</th>
+						            <th>协议名称</th>
+						            <th>有效期至</th>
+						            <th>客户</th>			            
+						            <th>合计</th>
+						            <th>状态</th>
+						        </tr>
+					        </thead>
+					        <tbody id="listitem">
+					            <tr>
+					                <td>LC007</td>
+					                <td>2013年度深圳分公司劳保用品供货协议</td>
+					                <td>2013-12-31</td>
+					                <td>有限深圳分公司</td>
+				    	            <td>600000.00</td>
+					                <td>草稿</td>
+					            </tr>
+					        </tbody>
+					    </table>
+					</div>
+					<div class="tab-pane" id="orderdetail">
+					    <table class="table table-hover table-condensed">
+					        <thead>
+						        <tr>
+						            <th>订单编号</th>
+						            <th>创建日期</th>
+						            <th>客户</th>			            
+						            <th>联络人</th>
+						            <th>期待到货日期</th>
+						            <th>经办人</th>
+						            <th>合计</th>
+						            <th>状态</th>
+						        </tr>
+					        </thead>
+					        <tbody>
+					            <tr id="listitem1">
+					                <td>SO014</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>32000.00</td>
+					                <td>发货中</td>
+					            </tr>
+					            <tr id="listitem2">
+					                <td>SO013</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>8400.00</td>
+					                <td>草稿</td>
+					            </tr>
+					            <tr id="listitem1">
+					                <td>SO014</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>32000.00</td>
+					                <td>发货中</td>
+					            </tr>
+					            <tr id="listitem2">
+					                <td>SO013</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>8400.00</td>
+					                <td>草稿</td>
+					            </tr>
+					            <tr id="listitem1">
+					                <td>SO014</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>32000.00</td>
+					                <td>发货中</td>
+					            </tr>
+					            <tr id="listitem2">
+					                <td>SO013</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>8400.00</td>
+					                <td>草稿</td>
+					            </tr>
+					            <tr id="listitem1">
+					                <td>SO014</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>32000.00</td>
+					                <td>发货中</td>
+					            </tr>
+					            <tr id="listitem2">
+					                <td>SO013</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>8400.00</td>
+					                <td>草稿</td>
+					            </tr>
+					            <tr id="listitem1">
+					                <td>SO014</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>32000.00</td>
+					                <td>发货中</td>
+					            </tr>
+					            <tr id="listitem2">
+					                <td>SO013</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>8400.00</td>
+					                <td>草稿</td>
+					            </tr>
+					            <tr id="listitem1">
+					                <td>SO014</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>32000.00</td>
+					                <td>发货中</td>
+					            </tr>
+					            <tr id="listitem2">
+					                <td>SO013</td>
+					                <td>2013-02-20</td>
+					                <td>中国海油集团(有限)公司深圳分公司</td>
+					                <td>宣德</td>
+					                <td>2013-12-20</td>
+					                <td>泰昌</td>
+					                <td>8400.00</td>
+					                <td>草稿</td>
+					            </tr>
+					        </tbody>
+					    </table>
+					</div>
+				</div>
+			</div>
+			<div class="new-content">
+				<div class="row-fluid">
+					<div class="span1">
+						<img src="../img/placeholder.png"/>			
+					</div>
+					<div class="span1">
+						<div style="float:right">公司名称</div>
+					</div>
+					<div class="span4">					
+						<input class="span12" type="text" placeholder="" value=""/>
+					</div>
+					<div class="span2">
+						<div style="float:right">电话</div>
+					</div>
+					<div class="span4">
+						<input class="span12" type="text" value=""/>
+					</div>
+					<div class="span1">
+						<div style="float:right">网站</div>
+					</div>
+					<div class="span4">
+						<input class="span12" type="text" value=""/>
+					</div>
+					<div class="span2">
+						<div style="float:right">传真</div>
+					</div>
+					<div class="span4">
+						<input class="span12" type="text" value=""/>
+					</div>
+				</div>	
+				<br/>
+				<ul class="nav nav-tabs">
+					<li id="contactslinew" class="active"><a onclick="tab('contacts','new')">联系人</a></li>
+					<li id="addresslinew"><a onclick="tab('address','new')">地址</a></li>
+					<li id="commentlinew"><a onclick="tab('comment','new')">备注</a></li>
+				</ul>
+				<div class="tab-content">		
+					<div class="tab-pane active" id="contactsnew">
+						<div id="address_table" style="display: block">
+						    <table id="address_table" class="table table-condensed">
+						        <thead>
+							        <tr>
+							        	<th>姓名</th>
+							        	<th>账号</th>
+							        	<th>联系电话</th>
+				       				    <th>电子邮件</th>
+				       				    <th>地址</th>
+				       				    <th>操作</th>
+							        </tr>					        
+						        </thead>
+						        <tbody>
+						        </tbody>
+					        </table>
+					    </div>
+	      	     	<a> 添加新用户 </a>				        
+					</div>
+					<div class="tab-pane" id="commentnew">
+						<textarea class="span8" rows="3"></textarea>
+					</div>
+					<div class="tab-pane" id="addressnew">
+					    <table id="contacts_table" class="table table-hover table-condensed">
+					        <thead>
+						        <tr>
+						        	<th>地址类型</th>
+						        	<th>省/州</th>
+			       				    <th>市/区</th>
+			       				    <th>街道</th>
+			       				    <th>邮编</th>
+			       				    <th>操作</th>
+						        </tr>
+					        </thead>
+					        <tbody>					        
+					        </tbody>
+				        </table>
+				        <a> 添加新地址 </a>				
+					</div>
+				</div>
+			</div>
+			<div class="edit-content">
+				<div class="row-fluid">
+					<div class="span1">
+						<img src="../img/placeholder.png"/>			
+					</div>
+					<div class="span1">
+						<div style="float:right">公司名称</div>
+					</div>
+					<div class="span4">					
+						<input class="span12" type="text" placeholder="名称" value="中国海油集团(有限)公司深圳分公司"/>
+					</div>
+					<div class="span2">
+						<div style="float:right">电话</div>
+					</div>
+					<div class="span4">
+						<input class="span12" type="text" value="0755 83638363"/>
+					</div>
+					<div class="span1">
+						<div style="float:right">网站</div>
+					</div>
+					<div class="span4">
+						<input class="span12" type="text" value="www.cnooc.com.cn"/>
+					</div>
+					<div class="span2">
+						<div style="float:right">传真</div>
+					</div>
+					<div class="span4">
+						<input class="span12" type="text" value="0755 83638363"/>
+					</div>
+				</div>	
+				<br/>
+				<ul class="nav nav-tabs">
+					<li id="contactsliedit" class="active"><a onclick="tab('contacts','edit')">联系人</a></li>
+					<li id="addressliedit"><a onclick="tab('address','edit')">地址</a></li>
+					<li id="commentliedit"><a onclick="tab('comment','edit')">备注</a></li>
+				</ul>
+				<div class="tab-content">		
+					<div class="tab-pane active" id="contactsedit">
+						<div id="address_table" style="display: block">
+						    <table id="address_table" class="table table-condensed">
+						        <thead>
+							        <tr>
+							        	<th>姓名</th>
+							        	<th>账号</th>
+							        	<th>联系电话</th>
+				       				    <th>电子邮件</th>
+				       				    <th>地址</th>
+				       				    <th>操作</th>
+							        </tr>					        
+						        </thead>
+						        <tbody>
+						            <tr>
+						                <td>景泰</td>
+						                <td>jingtai</td>
+						                <td>138 12345678</td>
+						                <td>jtinfo@agrolait.com</td>
+						                <td>北京市东城区朝阳门大街</td>
+						                <td>
+						        			<a>编辑</a>
+						                </td>
+						            </tr>
+						            <tr>
+						                <td>成化</td>
+						                <td>chenghua</td>
+						                <td>138 12353258</td>
+						                <td>info@agrolait.com</td>
+						                <td>北京市海淀区五道口</td>
+						                <td>
+						        			<a>编辑</a>
+						                </td>
+						            </tr>
+						            <tr>
+						                <td>建文</td>
+						                <td>jianwen</td>
+						                <td>134 84738273</td>
+						                <td>jianwen123@agrolait.com</td>
+						                <td>北京市密云区密云水库</td>
+						                <td>
+						        			<a>编辑</a>
+						                </td>
+						            </tr>
+						        </tbody>
+					        </table>
+					    </div>
+					</div>
+					<div class="tab-pane" id="commentedit">
+						<textarea class="span8" rows="3"></textarea>
+					</div>
+					<div class="tab-pane" id="addressedit">
+					    <table id="contacts_table" class="table table-hover table-condensed">
+					        <thead>
+						        <tr>
+						        	<th>地址类型</th>
+						        	<th>省/州</th>
+			       				    <th>市/区</th>
+			       				    <th>街道</th>
+			       				    <th>邮编</th>
+			       				    <th>操作</th>
+						        </tr>
+					        </thead>
+					        <tbody>
+						        <tr>
+						        	<td>支付地址</td>
+						        	<td>北京</td>
+						        	<td>海淀</td>
+			       				    <td>朝阳门内大街2号凯恒中心16层</td>
+			       				    <td>100000</td>		
+			       		            <td>
+					        			<a>编辑</a>
+					        			|
+					        			<a>复制</a>
+					        			|
+					        			<a>删除</a>
+			       		            </td> 	       					
+						        </tr>
+						        <tr>
+						        	<td>通信地址</td>
+						        	<td>Troy</td>
+						        	<td>MI</td>
+			       				    <td>N Lovinton Dr, Apt 203</td>
+			       				    <td>48083</td>	
+			       		            <td>
+					        			<a>编辑</a>
+					        			|
+					        			<a>复制</a>
+					        			|
+					        			<a>删除</a>
+			       		            </td> 	       								       				    		       					
+						        </tr>						        
+					        </tbody>
+				        </table>
+				        <button class="btn btn-small">创建新地址</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	function tab(tabid,modid) 
+	{
+		if (modid == "detail")
+		{
+			document.getElementById("agreementlidetail").className="";			
+			document.getElementById("orderlidetail").className="";			
+			document.getElementById("agreementdetail").className="tab-pane";			
+			document.getElementById("orderdetail").className="tab-pane";			
+		}
+		document.getElementById("contactsli"+modid).className="";			
+		document.getElementById("commentli"+modid).className="";			
+		document.getElementById("addressli"+modid).className="";			
+		document.getElementById(tabid+"li"+modid).className="active";
+		document.getElementById("contacts"+modid).className="tab-pane";			
+		document.getElementById("comment"+modid).className="tab-pane";			
+		document.getElementById("address"+modid).className="tab-pane";			
+		document.getElementById(tabid+modid).className="tab-pane active";
+	}
+	</script>
+	<script>
+	    require(["jquery", "domReady!"], function($){
+	    	// Initialize common buttons and views
+	    	var currentview = "";
+	    	var showview = function(view){
+	        	$(".detail-content").css("display", "none");
+	        	$(".new-content").css("display", "none");
+	            $(".list-content").css("display", "none");
+	            $(".edit-content").css("display", "none");	            
+	            $("." + view + "-content").css("display", "block");
+	            currentview = view;
+	    	};
+	        var showlist = function(){
+	        	showview("list");
+	    		document.getElementById("showlist").className="btn active btn-small";	    		
+	    		document.getElementById("showdetail").className="btn btn-small";
+	        };
+	        var showdetail = function(){
+	        	showview("detail");
+	    		document.getElementById("showlist").className="btn btn-small";	    		
+	    		document.getElementById("showdetail").className="btn active btn-small";
+	        };
+	        var shownew = function(){
+	        	showview("new");
+	        };
+	        var showedit = function(){
+	        	showview("edit");
+	        };
+	        $("#content-title").html($("#thistitle").val());
+	        $("#showlist").on("click", showlist);
+	        $("#showdetail").on("click", showdetail);
+	        $("#createbutton").on("click", shownew);
+	        $("#createbuttons").on("click", shownew);
+	        $("#discardbutton").on("click", showlist);
+	        $("#savebutton").on("click", showdetail);
+	        $("#discardbuttons").on("click", showlist);
+	        $("#savebuttons").on("click", showdetail);
+	        $("#editbutton").on("click", showedit);
+	        $("#listitem").on("click", showdetail);
+	        $("#listitems").on("click", showdetail);
+	        showlist();
+	    });
+	</script>
+	<div id="foot">
+	    <script type="text/javascript" src="../js/commonactions.js"></script>
+	</div>
+</body>

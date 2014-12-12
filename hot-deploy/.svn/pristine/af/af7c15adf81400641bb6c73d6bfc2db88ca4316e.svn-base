@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: white;
+	margin: 0px;
+	font-family: Microsoft Yahei;
+	font-size: 12px;
+}
+
+.centerBlock {
+	 margin:0 auto;
+}
+
+.bigInput {
+	display: inline-block;
+	width:250px;
+	height:30px;
+	margin:5px;
+	border: 1px solid #b0bbe0;
+	font-family:arial;
+	font-size:13pt;
+	line-height:30px;
+	padding:0px 5px;
+	outline: none;
+}
+.bigText {
+	color:#a0a0a0;
+	margin:5px;
+	font-family: Microsoft Yahei;
+	font-size:14pt;
+	outline: none;
+}
+
+a {
+	color: rgb(0,176,240);
+	cursor:pointer;
+	text-decoration: none;
+}
+a:hover {
+	color: rgb(0,206,255);
+	text-decoration: none;
+}
+a:active {
+	color:Red;
+	text-decoration: none;
+}
+
+
+

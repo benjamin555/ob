@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+	
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+			<div class="navbar navbar-inverse navbar-fixed-top" role="navigation"">
+				
+					<div class="container-fluid">
+						 <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						 </a> 
+						 <a href="#" class="brand">中国海油物料超市</a>
+						<div class="nav-collapse collapse navbar-responsive-collapse">
+							<ul class="nav">
+								<li class="active">
+									<a href="#">销售</a>
+								</li>
+								<li>
+									<a href="#">库存</a>
+								</li>
+								<li>
+									<a href="#">采购</a>
+								</li>
+								<li>
+									<a href="#">报表</a>
+								</li>
+								<li>
+									<a href="#">设置</a>
+								</li>
+								<li class="dropdown">
+									 <a data-toggle="dropdown" class="dropdown-toggle" href="#">下拉菜单<strong class="caret"></strong></a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">下拉导航1</a>
+										</li>
+										<li>
+											<a href="#">下拉导航2</a>
+										</li>
+										<li>
+											<a href="#">其他</a>
+										</li>
+										<li class="divider">
+										</li>
+										<li class="nav-header">
+											标签
+										</li>
+										<li>
+											<a href="#">链接1</a>
+										</li>
+										<li>
+											<a href="#">链接2</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="nav pull-right">
+								<li>
+									<a href="#">用户：Administrator</a>
+								</li>
+								<li class="divider-vertical">
+								</li>
+								<li class="dropdown">
+									 <a data-toggle="dropdown" class="dropdown-toggle" href="#">选项<strong class="caret"></strong></a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">下拉导航1</a>
+										</li>
+										<li>
+											<a href="#">下拉导航2</a>
+										</li>
+										<li>
+											<a href="#">其他</a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">链接3</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+				
+			</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+				<li class="nav-header">
+					销售
+				</li>
+				<li class="active">
+					<a href="#">客户<span class="badge pull-right">1</span></a>
+				</li>
+				<li>
+					<a href="#">长期协议</a>
+				</li>
+				<li>
+					<a href="#">销售订单<span class="badge pull-right">1</span></a>
+				</li>
+				<li class="nav-header">
+					出库
+				</li>
+				<li>
+					<a href="#">送货单</a>
+				</li>
+				<li class="nav-header">
+					对账
+				</li>
+				<li>
+					<a href="#">销售对账</a>
+				</li>
+				<li class="nav-header">
+					产品
+				</li>
+				<li>
+					<a href="#">产品类别</a>
+				</li>
+				<li>
+					<a href="#">产品</a>
+				</li>
+				<li class="divider">
+				</li>
+				<li>
+					<a href="#">帮助</a>
+				</li>
+			</ul>
+			</div>
+		</div>
+		<div class="span10">
+			<ul class="breadcrumb">
+				<li>
+					<a href="#">主页</a> <span class="divider">/</span>
+				</li>
+				<li>
+					<a href="#">类目</a> <span class="divider">/</span>
+				</li>
+				<li class="active">
+					主题
+				</li>
+			</ul>
+			<div class="page-header">
+				<h1>
+					页标题范例 <small>此处编写页标题</small>
+				</h1>
+			</div>
+			<h2>
+				标题
+			</h2>
+			<p>
+				本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.
+			</p>
+			<p>
+				<a class="btn" href="#">查看更多 »</a>
+			</p>
+			<div class="alert">
+				 <button type="button" class="close" data-dismiss="alert">×</button>
+				<h4>
+					提示!
+				</h4> <strong>警告!</strong> 请注意你的个人隐私安全.
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="./js/jquery-1.8.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+   
+
+</body>
+</html>

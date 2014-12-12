@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tree grid demo</title>
+<link rel="stylesheet" href="js/main.css" type="text/css" />
+<link rel="stylesheet" href="js/tui-new.css" type="text/css" />
+<style type="text/css">
+.space {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	vertical-align:middle;
+}
+.arrow {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	background-image:url(image/tui-icon20.png);
+	background-position:-480px center;
+	vertical-align:middle;
+}
+.arrow-opened {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	background-image:url(image/tui-icon20.png);
+	background-position:-440px center;
+	vertical-align:middle;
+}
+.txt {
+	vertical-align:middle;
+}
+</style>
+<script src="js/json2.js" type="text/javascript"></script>
+<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="js/helper.js" type="text/javascript"></script>
+<script src="js/tui.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	
+	function showError() {
+		var dlg = tui.dialog();
+		dlg.showMessage("网络或服务器错误。" );
+	}
+	
+	var result = null;
+	
+	function translate(srcData, objData) {
+		for (var i = 0; i < srcData.length; i++) {
+			objData.push(srcData[i]);
+			if (srcData[i][6] && srcData[i][6].expanded) {
+				translate(srcData[i][6].child, objData);
+			}
+		}
+	}
+	
+	function update() {
+		var formatted = [];
+		translate(result, formatted);
+		tb.setData(formatted,true);
+		tb.autoFitColumn(1,true);
+		tb.autoHeight();
+	}
+	
+	var tb = tui.grid("tb", [ { name: "<input type='checkbox'>", formater: function (){
+		var ck = document.createElement("INPUT");
+		ck.setAttribute("type", "checkbox");
+		return ck;
+	}, width:25},
+	{ name : "&nbsp;类别编码", cid:1, formater: function (v, idx){
+		var row = tb.getRow(idx);
+		var l = row[0];
+		var d = row[6];
+		var ct = document.createElement("SPAN");
+		for (var i = 0; i < l; i++) {
+			var p = document.createElement("SPAN");
+			ct.appendChild(p);
+			if (i === l-1) {
+				if (!d) {
+					p.className = "arrow";
+					$(p).bind("mousedown",function(){
+						get("api/data?level=" + (l+1), function(data) {
+							row[6] = {};
+							row[6].child = data;
+							row[6].expanded = true;
+							update();
+							tb.autoFitColumn(0, true);
+						}, function(o, msg, e) {
+							showError();
+						});
+					});
+				} else if (d.expanded) {
+					p.className = "arrow-opened";
+					$(p).bind("mousedown",function(){
+						d.expanded = false;
+						update();
+					});
+				} else {
+					p.className = "arrow";
+					$(p).bind("mousedown",function(){
+						d.expanded = true;
+						update();
+						tb.autoFitColumn(0, true);
+					});
+				}
+			} else {
+				p.className = "space";
+			}
+		}
+		var txt = document.createElement("SPAN");
+		txt.className = "txt";
+		txt.innerHTML = v;
+		ct.appendChild(txt);
+		return ct;
+	}},
+	{ name : "类别名称", cid:2},
+	{ name : "生效时间", cid:3},
+	{ name : "失效时间", cid:4},
+	{ name : "操作", cid:5}]);
+	
+	get("api/data", function(data) {
+		result = data;
+		var formatted = [];
+		translate(result, formatted);
+		tb.setData(formatted);
+		tb.autoHeight();
+	}, function(o, msg, e) {
+		showError();
+	});
+	tb.useWheele(false);
+});
+</script>
+</head>
+<body>
+<p style="font-size:14pt;text-align:center;">DEMO</p>
+<div id="tb" style="display:block;width:700px;height:400px;margin:0 auto">
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Example Services</description>
+	<vendor>OFBiz</vendor>
+	<version>1.0</version>
+	<service name="createPracticePerson" default-entity-name="Person"
+		engine="simple"
+		location="component://practice/script/org/hotwax/practice/PracticeServices.xml"
+		invoke="createPracticePerson" auth="true">
+		<description>Create a Person</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<attribute name="salutation" mode="IN" type="String"
+			optional="true" />
+		<attribute name="firstName" mode="IN" type="String"
+			optional="false" />
+		<attribute name="middleName" mode="IN" type="String"
+			optional="true" />
+		<attribute name="lastName" mode="IN" type="String" optional="false" />
+		<attribute name="suffix" mode="IN" type="String" optional="true" />
+	</service>
+
+	<service name="updatePracticePerson" default-entity-name="Person"
+		engine="simple"
+		location="component://practice/script/org/hotwax/practice/PracticeServices.xml"
+		invoke="updatePracticePerson" auth="true">
+		<description>Create a Person</description>
+		<auto-attributes include="pk" mode="OUT" optional="false" />
+		<attribute name="salutation" mode="IN" type="String"
+			optional="true" />
+		<attribute name="firstName" mode="IN" type="String"
+			optional="false" />
+		<attribute name="middleName" mode="IN" type="String"
+			optional="true" />
+		<attribute name="lastName" mode="IN" type="String" optional="false" />
+		<attribute name="suffix" mode="IN" type="String" optional="true" />
+	</service>
+
+
+
+	<service name="createHelloPerson" engine="java"
+		location="com.accenture.bj.practice.HelloPersonService" invoke="create">
+		<description>create Service</description>
+		<attribute name="firstName" type="String" mode="IN" />
+		<attribute name="middleName" type="String" mode="IN" optional="true" />
+		<attribute name="lastName" type="String" mode="IN" optional="true" />
+	</service>
+	
+	<service name="updateHelloPerson" engine="java"
+		location="com.accenture.bj.practice.HelloPersonService" invoke="update">
+		<description>update Service</description>
+		<attribute name="id" type="String" mode="IN" />
+		<attribute name="firstName" type="String" mode="IN" optional="true" />
+		<attribute name="middleName" type="String" mode="IN" optional="true" />
+		<attribute name="lastName" type="String" mode="IN" optional="true" />
+	</service>
+	
+	
+	<service name="delHelloPerson" engine="java"
+		location="com.accenture.bj.practice.HelloPersonService" invoke="del">
+		<description>delete Service</description>
+		<attribute name="id" type="String" mode="IN" />
+	</service>
+	
+	
+	<service name="listHelloPerson" engine="java"
+		location="com.accenture.bj.practice.HelloPersonService" invoke="list">
+		<description>list Service</description>
+		<attribute name="firstName" type="String" mode="IN" optional="true" />
+		<attribute name="middleName" type="String" mode="IN" optional="true" />
+		<attribute name="lastName" type="String" mode="IN" optional="true" />
+		<attribute name="persons" type="java.util.List" mode="OUT" />
+	</service>
+	
+	<service name="detailHelloPerson" engine="java"
+		location="com.accenture.bj.practice.HelloPersonService" invoke="detail">
+		<description>detail Service</description>
+		<attribute name="id" type="String" mode="IN" />
+		<attribute name="helloPerson" type="org.ofbiz.entity.GenericValue" mode="OUT" />
+		<attribute name="helloContacts" type="java.util.List" mode="OUT" />
+	</service>
+	 
+	
+</services>

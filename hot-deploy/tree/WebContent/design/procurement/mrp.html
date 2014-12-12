@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/custom.css">
+    <script type="text/javascript" src="../js/require.js"></script>
+    <title>中国海油物料超市</title>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	    <div class="container-fluid">
+	        <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </a>
+	        <!-- <a href="#" class="brand">中国海油物料超市</a> -->
+	        <div class="nav-collapse collapse navbar-responsive-collapse">
+	            <ul class="nav">
+	                <li id="nav-sales"><a href="../sales/salescustomer.html">销售</a></li>
+	                <li id="nav-product"><a href="../product/prodCategory.html">产品</a></li>
+	                <li id="nav-logistics"><a href="../logistics/logisticsreceive.html">库存</a></li>
+	                <li id="nav-procurement"><a href="../procurement/supplier.html">采购</a></li>
+	                <li id="nav-report"><a href="#">报表</a></li>
+	                <li id="nav-setting"><a href="../setting/settingcompany.html">设置</a></li>
+	            </ul>
+	            <ul class="nav pull-right" id="nav-user">
+	                <li>
+	                    <a href="#">用户: Administrator</a>
+	                </li>
+	                <li class="divider-vertical">
+	                </li>
+	                <li class="dropdown">
+	                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">选项<strong class="caret"></strong></a>
+	                    <ul class="dropdown-menu">
+	                        <li>
+	                            <a href="#">Item 1</a>
+	                        </li>
+	                        <li>
+	                            <a href="#">Item 2</a>
+	                        </li>
+	                        <li>
+	                            <a href="#">Others</a>
+	                        </li>
+	                        <li class="divider">
+	                        </li>
+	                        <li>
+	                            <a href="#">Link 3</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<div class="container-fluid">
+		<div class="span2">
+			<img src="../img/company-logo-1.png">
+			<div class="well sidebar-nav" id="menus">
+			    <ul class="nav nav-list" id="menu-sales" style="display: none;">
+			        <li class="nav-header">销售</li>
+			        <li id="menu-sales-client"><a href="#">客户<span class="badge pull-right">1</span></a></li>
+			        <li id="menu-sales-longtermcontracts"><a href="#">长期协议</a></li>
+			        <li id="menu-sales-saleorder"><a href="#">销售订单<span class="badge pull-right">1</span></a></li>
+			        <li class="nav-header">对账</li>
+			        <li id="menu-sales-goodsissue"><a href="#">销售对账</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-setting" style="display: none;">
+			        <li class="nav-header"> 公司 </li>
+			        <li id="menu-setting-company"><a href="#">公司</a></li>
+			        <li class="nav-header"> 用户 </li>
+			        <li id="menu-setting-user"><a href="..\setting\settinguser.html">用户</a></li>
+			        <li id="menu-setting-usergroup"><a href="..\setting\settingusergroup.html">权限组</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-logistics" style="display: none;">
+			        <li class="nav-header"> 收货 </li>
+			        <li id="menu-logistics-receive"><a href="#">入库单</a></li>
+			        <li class="nav-header"> 发货 </li>
+			        <li id="menu-logistics-deliveryorder"><a href="#">出库单</a></li>
+			        <li class="nav-header"> 移库 </li>
+			        <li id="menu-logistics-move"><a href="#">移库单</a></li>
+			        <li class="nav-header"> 盘点 </li>
+			        <li id="menu-logistics-makeinventory"><a href="#">实物盘点</a></li>
+<!-- 			        <li class="nav-header"> 产品 </li>
+			        <li id="menu-logistics-product"><a href="#">产品类别</a></li>
+			        <li id="menu-logistics-producttype"><a href="#">产品</a></li>
+			        <li class="nav-header"> 设置 </li>
+			        <li id="menu-logistics-warehouse"><a href="#">仓库</a></li>
+			        <li id="menu-logistics-position"><a href="#">仓位</a></li>
+			        <li id="menu-logistics-rules"><a href="#">再订购规则</a></li>
+ -->			    
+				</ul>
+			    <ul class="nav nav-list" id="menu-procurement" style="display: none;">
+			        <li class="nav-header"> 采购 </li>
+			        <li id="menu-procurement-supplier"><a href="..\procurement\supplier.html">供应商</a></li>
+			        <li id="menu-procurement-contract"><a href="..\procurement\contract.html">采购协议</a></li>
+			        <li id="menu-procurement-order"><a href="..\procurement\order.html">采购订单</a></li>
+			        <li id="menu-procurement-orderreturn"><a href="..\procurement\orderreturn.html">退货订单</a></li>
+			        <li class="nav-header"> MRP </li>
+			        <li id="menu-procurement-mrp"><a href="..\procurement\mrp.html">计划运行</a></li>
+			    </ul>
+			    <ul class="nav nav-list" id="menu-procurement" style="display: none;">
+			        <li class="nav-header"> 销售 </li>
+			        <li id="menu-report-salesanalysis"><a href="#">销售分析</a></li>
+			        <li class="nav-header"> 库存 </li>
+			        <li id="menu-report-inventoryanalysis"><a href="#">库存分析</a></li>
+			        <li class="nav-header"> 采购 </li>
+			        <li id="menu-report-procurementanalysis"><a href="#">采购分析</a></li>
+			    </ul>
+			</div>
+		</div>
+		<div class="span10">
+			<div class="page-header container-fluid">
+			    <div class="row-fluid">
+			        <div class="span8">
+			            <span id="content-title" style="font-size: 24px;"></span>			            
+			        </div>
+			        <div class="span4 list-content">
+			            <input type="text" class="search-query" placeholder="Search">
+			        </div>
+			    </div>
+			    <div class="row-fluid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			    <div class="row-fluid">
+			        <div class="span3">
+			            <div class="row-fluid">
+			                <div class="list-content">
+			                    <button class="btn btn-small btn-danger" id="createbutton1"><i class="icon-pencil"></i>创建</button>
+			                </div>
+			                <div class="new-content">
+			                    <button class="btn btn-small btn-danger" id="savebutton1"><i class="icon-step-forward"></i>运行</button>
+					       		<button class="btn btn-small" id="discardbutton1"><i class="icon-remove"></i>放弃</button>
+			                </div>
+			                <div class="update-content">
+			                    <button class="btn btn-small btn-danger" id="savebutton"><i class="icon-ok"></i>保存</button>
+					       		<button class="btn btn-small" id="discardbutton"><i class="icon-remove"></i>放弃</button>
+			                </div>
+			                <div class="detail-content">
+			                    <button class="btn btn-small" id="updatebutton"><i class="icon-edit"></i> 编辑</button>
+			                    <button class="btn btn-small" id="createbutton"><i class="icon-flag"></i> 创建</button>
+			                </div>
+			            </div>
+			        </div>
+			        <div class="span3">
+			        	<div class="list-content detail-content">
+				        </div>
+			        </div>
+			        <div class="span5">
+						<div class="detail-content" style="float:right">
+	        				<span>1/3&nbsp;&nbsp;</span>
+							<button class="btn btn-small"><i class="icon-arrow-left"></i></button>
+							<button class="btn btn-small"><i class="icon-arrow-right"></i></button>
+        				</div>
+        			</div>
+			        <div class="span1">
+			        	<div class="list-content detail-content" style="float:right">
+				            <div class="btn-group" data-toggle="buttons-radio">
+					            <abbr title="显示列表"><button class="btn active btn-small" id="showlist" data-toggle="tooltip"><i class="icon-list"></i></button></abbr>
+								<abbr title="查看详情"><button class="btn btn-small" id="showdetail" data-toggle="tooltip"><i class="icon-resize-full"></i></button></abbr>
+				            </div>
+			            </div>
+			        </div>
+			    </div>
+			    <div class="row-fluid detail-content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			    <div class="row-fluid detail-content">
+					<div class="span7">
+						<div id="draftDiv">
+							<button class="btn btn-danger" id="toSend">确认</button>
+							<button class="btn" id="toCancel">取消</button>
+						</div>
+						<div style="display: none;" id="confirmDiv">
+							<button class="btn btn-danger" id="toReceive">转为采购订单</button>
+							<button class="btn" id="toReturn">返回列表</button>
+						</div>
+						<div style="display: none;" id="cancelDiv">
+							<button class="btn" id="toDraft">转为草稿</button>
+						</div>
+					</div>
+					<div class="span5">
+						<div class="ebiz" id="ulnormal">
+							<ul class="oe_form_field_status oe_form_status" style="float:right">    
+					 			<li class="oe_active" id="draft">
+									<span class="oe_label">草稿</span>
+									<span class="oe_arrow"><span></span></span>
+								</li>
+								<li class="" id="confirm">
+									<span class="oe_label">已确认</span>
+									<span class="oe_arrow"><span></span></span>
+								</li>
+							</ul>
+						</div>
+						<div class="ebiz" id="ulcancel" style="display:none">
+							<ul class="oe_form_field_status oe_form_status" style="float:right">    
+					 			<li class="">
+									<span class="oe_label">草稿</span>
+									<span class="oe_arrow"><span></span></span>
+								</li>
+								<li class="">
+									<span class="oe_label">已确认</span>
+									<span class="oe_arrow"><span></span></span>
+								</li>
+								<li class="oe_active">
+									<span class="oe_label">已取消</span>
+									<span class="oe_arrow"><span></span></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+			    </div>
+			</div>
+			<input type="hidden" value="mrp" id="currentpage">
+			<input type="hidden" value="procurement" id="currentmenu">
+			<input type="hidden" value="计划运行" id="thistitle">
+			<div class="list-content">
+			    <table class="table table-hover table-condensed">
+			        <thead>
+			        <tr>
+						<th><input type="checkbox"></th>
+			            <th>产品</th>
+			            <th>计划日期</th>
+			            <th>数量</th>
+						<th>计量单位</th>
+						<th>状态</th>
+						<th>说明</th>
+			        </tr>
+			        </thead>
+			        <tbody>
+			            <tr>
+							<td><input name="radiogroup" type="checkbox"></td>
+			                <td><a data-toggle="tab" id="userInfoExam1Tab">1004</a></td>
+			                 <td>12/12/2013</td>
+			                <td>100</td>
+			                <td>个</td>
+			                <td>草稿</td>
+							<td></td>
+			            </tr>
+						<tr>
+							<td><input name="radiogroup" type="checkbox"></td>
+			                <td><a data-toggle="tab" id="userInfoExam2Tab">1002</a></td>
+			                <td>12/12/2013</td>
+			                <td>200</td>
+			                <td>副</td>
+			                <td>处理中</td>
+							<td></td>
+			            </tr>
+						<tr>
+							<td><input name="radiogroup" type="checkbox"></td>
+			                <td><a data-toggle="tab" id="userInfoExam3Tab">1001</a></td>
+			                <td>12/12/2013</td>
+			                <td>300</td>
+			                <td>个</td>
+			                <td>完成</td>
+							<td></td>
+			            </tr>
+			        </tbody>
+			    </table>
+			</div>
+			<div class="detail-content">
+				<div class="row-fluid">
+					<div class="span4 offset1">
+						<h3>产品编号&nbsp;&nbsp;&nbsp;&nbsp;1004</h3>
+					</div>
+				</div>
+				<div class="row-fluid"></div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">计划日期</div></div>
+					<div class="span4">
+						12/12/2013
+					</div>
+					<div class="span2"><div style="float:right">计量单位</div></div>
+					<div class="span4">
+						个
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">数量</div></div>
+					<div class="span4">
+						100
+					</div>
+					<div class="span2"><div style="float:right">仓位</div></div>
+					<div class="span4">
+						天津仓库
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">优先级</div></div>
+					<div class="span4">
+						一般
+					</div>
+					<div class="span2"><div style="float:right">采购订单</div></div>
+					<div class="span4">
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">产品类别</div></div>
+					<div class="span4">
+						通用类别
+					</div>
+					<div class="span2"><div style="float:right">说明</div></div>
+					<div class="span4">
+					</div>
+				</div>
+			</div>
+			<div class="new-content">
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">运行仓库</div></div>
+					<div class="span4">
+						<select class="span12">
+							<option>(请选择仓库)</option>
+							<option>天津仓库</option>
+							<option>惠州仓库</option>
+							<option>深圳仓库</option>
+						</select>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">是否自动计算订货点</div></div>
+					<div class="span4">
+						<input type="checkbox"/>
+					</div>
+				</div>
+			</div>
+			<div class="update-content">
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">产品编号</div></div>
+					<div class="span4">
+						<label>1004</label>
+					</div>
+				</div>
+				<div class="row-fluid"></div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">计划日期</div></div>
+					<div class="span4">
+						<input class="span12" type="text" value="12/12/2013"/>
+					</div>
+					<div class="span2"><div style="float:right">计量单位</div></div>
+					<div class="span4">
+						<input class="span12" type="text" value="个"/>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">数量</div></div>
+					<div class="span4">
+						<input class="span12" type="text" value="100"/>
+					</div>
+					<div class="span2"><div style="float:right">仓位</div></div>
+					<div class="span4">
+						<select class="span12">
+							<option>(请选择仓库)</option>
+							<option selected="checked">天津仓库</option>
+							<option>惠州仓库</option>
+							<option>深圳仓库</option>
+						</select>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">优先级</div></div>
+					<div class="span4">
+						<select class="span12">
+							<option>(请选择优先级)</option>
+							<option selected="checked">一般</option>
+							<option>紧急</option>
+						</select>
+					</div>
+					<div class="span2"><div style="float:right">采购订单</div></div>
+					<div class="span4">
+						<input class="span12" type="text" placeholder =""/>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span2"><div style="float:right">产品类别</div></div>
+					<div class="span4">
+						<select class="span12">
+							<option>(请选择产品类别)</option>
+							<option selected="checked">类别1</option>
+							<option>类别2</option>
+							<option>类别3</option>
+						</select>
+					</div>
+					<div class="span2"><div style="float:right">说明</div></div>
+					<div class="span4">
+						<input class="span12" type="text" placeholder =""/>
+					</div>
+				</div>
+			</div>
+			<div class="list-content">
+		    	<br/>
+		    	每页
+		    	<select type="text" style="width:50px;">
+		    		<option>10</option>
+		    		<option>20</option>
+		    		<option>50</option>
+		    	</select>
+		    	项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    	<a><i class="icon-fast-backward"></i></a>
+		    	<a><i class="icon-chevron-left"></i></a>
+				&nbsp;&nbsp;
+		       	 第 <input type="text" style="width:15px;" value="1" /> /1页
+				&nbsp;&nbsp;
+				<a><i class="icon-chevron-right"></i></a>
+				<a><i class="icon-fast-forward"></i></a>
+				<div style="float:right;">
+					显示1到3,共3记录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+			</div>		    
+		</div>
+	</div>
+	<script>
+	    require(["jquery", "domReady!"], function($){
+	    	// Initialize common buttons and views
+	    	var currentview = "";
+	    	var showview = function(view){
+	        	$(".detail-content").css("display", "none");
+	        	$(".new-content").css("display", "none");
+	            $(".list-content").css("display", "none");
+	            $(".update-content").css("display", "none");
+	            $("." + view + "-content").css("display", "block");
+	            currentview = view;
+	    	};
+	        var showlist = function(){
+	        	showview("list");
+	        	document.getElementById("showlist").className="btn active btn-small";	    		
+	    		document.getElementById("showdetail").className="btn btn-small";
+	        };
+	        var showdetail = function(){
+	        	showview("detail");
+	        	document.getElementById("showlist").className="btn btn-small";	    		
+	    		document.getElementById("showdetail").className="btn active btn-small";
+	        	$("#content-title").html($("#thistitle").val());
+	        };
+	        var shownew = function(){
+	        	showview("new");
+	        	$("#content-title").html($("#thistitle").val());
+	        };
+	        var showupdate = function(){
+	        	showview("update");
+	        };
+	        $("#content-title").html($("#thistitle").val());
+	        $("#showlist").on("click", showlist);
+	        $("#showdetail").on("click", showdetail);
+	        $("#createbutton").on("click", shownew);
+	        $("#createbutton1").on("click", shownew);
+	        $("#discardbutton").on("click", showlist);
+	        $("#savebutton").on("click", showdetail);
+	        $("#discardbutton1").on("click", showlist);
+	        $("#savebutton1").on("click", showlist);
+	        $("#updatebutton").on("click", showupdate);
+	        showlist();
+
+			$("#productInfoTab").on("click", function(){
+				$("#remarkInfoDiv").css("display", "none");
+				$("#productInfoDiv").css("display", "block");
+			});
+			$("#remarkInfoTab").on("click", function(){
+				$("#remarkInfoDiv").css("display", "block");
+				$("#productInfoDiv").css("display", "none");
+			});
+			
+			$("#productInfoTab1").on("click", function(){
+				$("#remarkInfoDiv1").css("display", "none");
+				$("#productInfoDiv1").css("display", "block");
+			});
+			$("#remarkInfoTab1").on("click", function(){
+				$("#remarkInfoDiv1").css("display", "block");
+				$("#productInfoDiv1").css("display", "none");
+			});
+
+			$("#productInfoTab2").on("click", function(){
+				$("#remarkInfoDiv2").css("display", "none");
+				$("#productInfoDiv2").css("display", "block");
+			});
+			$("#remarkInfoTab2").on("click", function(){
+				$("#remarkInfoDiv2").css("display", "block");
+				$("#productInfoDiv2").css("display", "none");
+			});
+			
+			$("#userInfoExam1Tab").on("click", function(){
+				showdetail();
+				$(".relationInfoDiv").css("display", "none");
+				$(".userInfoDiv").css("display", "none");
+			});
+			$("#userInfoExam2Tab").on("click", function(){
+				showdetail();
+				$(".relationInfoDiv").css("display", "none");
+				$(".userInfoDiv").css("display", "none");
+			});
+			$("#userInfoExam3Tab").on("click", function(){
+				showdetail();
+				$(".relationInfoDiv").css("display", "none");
+				$(".userInfoDiv").css("display", "none");
+			});
+			
+			$("#toSend").on("click", function(){
+				$("#ulnormal").css("display", "block");
+				$("#ulcancel").css("display", "none");
+				document.getElementById("draft").className="";
+				document.getElementById("confirm").className="oe_active";
+				$("#draftDiv").css("display", "none");
+				$("#confirmDiv").css("display", "block");
+				$("#cancelDiv").css("display", "none");
+			});
+			$("#toCancel").on("click", function(){
+				if(confirm("您确认要取消吗？取消后本单据的状态会变为（已取消）。")) {
+					$("#ulnormal").css("display", "none");
+					$("#ulcancel").css("display", "block");
+					$("#draftDiv").css("display", "none");
+					$("#confirmDiv").css("display", "none");
+					$("#cancelDiv").css("display", "block");
+				}
+			});
+			$("#toDraft").on("click", function(){
+				$("#ulnormal").css("display", "block");
+				$("#ulcancel").css("display", "none");
+				document.getElementById("draft").className="oe_active";
+				document.getElementById("confirm").className="";
+				$("#draftDiv").css("display", "block");
+				$("#confirmDiv").css("display", "none");
+				$("#cancelDiv").css("display", "none");
+			});
+			$("#toReceive").on("click", function(){
+				alert("已成功转为采购订单！");
+				showlist();
+			});
+			$("#toReturn").on("click", function(){
+				showlist();
+			});
+	    });
+	</script>
+	<div id="foot">
+	    <script type="text/javascript" src="../js/commonactions.js"></script>
+	</div>
+</body>

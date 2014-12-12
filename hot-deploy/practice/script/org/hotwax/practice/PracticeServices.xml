@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+    <!-- ExampleStatus methods -->
+    <simple-method method-name="createPracticePerson" short-description="create a ExampleItem">
+ 	</simple-method>
+ 	<simple-method method-name="updatePracticePerson" short-description="create a ExampleItem">
+ 	</simple-method>
+ 	
+</simple-methods>

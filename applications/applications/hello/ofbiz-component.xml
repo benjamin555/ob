@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="hello"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+	<resource-loader name="main" type="component" />
+	<classpath type="dir" location="script"/>
+	<classpath type="jar" location="build/lib/*"/>
+	
+	<entity-resource loader="main" location="entitydef/entitymode.xml" reader-name="main" type="model"/>
+	<entity-resource loader="main" location="entitydef/entitygroup.xml" reader-name="main" type="group"/>
+	<entity-resource loader="main" location="data/HobbiesData.xml" reader-name="seed" type="data"/>
+	
+	<service-resource loader="main" location="servicedef/services.xml" type="model"/>
+	
+	<webapp name="hello" title="Hello" server="default-server"
+		 location="webapp/hello" mount-point="/hello"
+		app-bar-display="false" />
+</ofbiz-component>

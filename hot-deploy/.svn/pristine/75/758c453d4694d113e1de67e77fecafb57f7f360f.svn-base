@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../stylesheets/jquery.treetable.css">
+<link rel="stylesheet" type="text/css"	href="../stylesheets/jquery.treetable.theme.default.css">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../bootstrap/css/custom.css">
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../xheditor/xheditor-1.2.1.min.js"></script>
+<script type="text/javascript" src="../xheditor/xheditor_lang/zh-cn.js"></script>
+
+<script type="text/javascript" src="../js/require.js"></script>
+<title>中国海油物料超市</title>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<a data-target=".navbar-responsive-collapse" data-toggle="collapse"	class="btn btn-navbar"> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> <span class="icon-bar"></span>
+			</a>
+			<!-- <a href="#" class="brand">中国海油物料超市</a> -->
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				 <ul class="nav">
+	                <li id="nav-sales"><a href="../sales/salescustomer.html">销售</a></li>
+	                <li id="nav-product"><a href="../product/prodCategory.html">产品</a></li>
+	                <li id="nav-logistics"><a href="../logistics/logisticsreceive.html">库存</a></li>
+	                <li id="nav-procurement"><a href="../procurement/supplier.html">采购</a></li>
+	                <li id="nav-report"><a href="#">报表</a></li>
+	                <li id="nav-setting"><a href="../setting/settingcompany.html">设置</a></li>
+	            </ul>
+				<ul class="nav pull-right" id="nav-user">
+					<li><a href="#">用户: Administrator</a></li>
+					<li class="divider-vertical"></li>
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#">选项<strong class="caret"></strong></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Item 1</a></li>
+							<li><a href="#">Item 2</a></li>
+							<li><a href="#">Others</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Link 3</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="span2">
+			<img src="../img/company-logo-1.png">
+			<div class="well sidebar-nav" id="menus">
+				<ul class="nav nav-list" id="menu-sales" style="display: none;">
+					<li class="nav-header">销售</li>
+					<li id="menu-sales-client"><a href="#">客户<span
+							class="badge pull-right">1</span></a></li>
+					<li id="menu-sales-longtermcontracts"><a href="#">长期协议</a></li>
+					<li id="menu-sales-saleorder"><a href="#">销售订单<span
+							class="badge pull-right">1</span></a></li>
+					<li class="nav-header">对账</li>
+					<li id="menu-sales-goodsissue"><a href="#">销售对账</a></li>
+				</ul>
+				<ul class="nav nav-list" id="menu-product" style="display: none;">
+					<li class="nav-header">产品</li>
+					<li id="menu-product-prodcategory"><a href="./prodCategory.html">类别</a></li>
+					<li id="menu-product-prodfeature"><a href="./prodFeature.html">属性</a></li>
+					<li id="menu-product-product"><a href="./prodProduct.html">产品</a></li>
+					<li class="nav-header">图库</li>
+					<li id="menu-product-prodpics"><a href="./prodPic.html">管理图库</a></li>
+					<li id="menu-product-prodfolder"><a href="./prodFolder.html">管理文件夹</a></li>
+				</ul>
+				<ul class="nav nav-list" id="menu-setting" style="display: none;">
+					<li class="nav-header"> 公司 </li>
+			        <li id="menu-setting-company"><a href="..\setting\settingcompany.html">公司</a></li>
+			        <li class="nav-header"> 用户 </li>
+			        <li id="menu-setting-user"><a href="..\setting\settinguser.html">用户</a></li>
+			        <li id="menu-setting-usergroup"><a href="..\setting\settingusergroup.html">权限组</a></li>
+				</ul>
+				<ul class="nav nav-list" id="menu-logistics" style="display: none;">
+					<li class="nav-header">收货</li>
+					<li id="menu-logistics-receive"><a href="#">入库单</a></li>
+					<li class="nav-header">发货</li>
+					<li id="menu-logistics-deliveryorder"><a href="#">出库单</a></li>
+					<li class="nav-header">移库</li>
+					<li id="menu-logistics-move"><a href="#">移库单</a></li>
+					<li class="nav-header">盘点</li>
+					<li id="menu-logistics-makeinventory"><a href="#">实物盘点</a></li>
+					<!-- 			        <li class="nav-header"> 产品 </li>
+			        <li id="menu-logistics-product"><a href="#">产品类别</a></li>
+			        <li id="menu-logistics-producttype"><a href="#">产品</a></li>
+			        <li class="nav-header"> 设置 </li>
+			        <li id="menu-logistics-warehouse"><a href="#">仓库</a></li>
+			        <li id="menu-logistics-position"><a href="#">仓位</a></li>
+			        <li id="menu-logistics-rules"><a href="#">再订购规则</a></li>
+ -->
+				</ul>
+				<ul class="nav nav-list" id="menu-procurement"
+					style="display: none;">
+					<li class="nav-header">采购</li>
+					<li id="menu-procurement-supplier"><a href="#">供应商</a></li>
+					<li id="menu-procurement-contract"><a href="#">供货协议</a></li>
+					<li id="menu-procurement-supplier"><a href="#">采购订单</a></li>
+					<li class="nav-header">MRP</li>
+					<li id="menu-procurement-mrp"><a href="#">计划运行</a></li>
+					<li class="nav-header">产品</li>
+					<li id="menu-procurement-producttype"><a href="#">产品类别</a></li>
+					<li id="menu-procurement-product"><a href="#">产品</a></li>
+				</ul>
+				<ul class="nav nav-list" id="menu-procurement"
+					style="display: none;">
+					<li class="nav-header">销售</li>
+					<li id="menu-report-salesanalysis"><a href="#">销售分析</a></li>
+					<li class="nav-header">库存</li>
+					<li id="menu-report-inventoryanalysis"><a href="#">库存分析</a></li>
+					<li class="nav-header">采购</li>
+					<li id="menu-report-procurementanalysis"><a href="#">采购分析</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="span10">
+			<div class="page-header container-fluid">
+				<div class="row-fluid">
+					<div class="span8">
+						<span id="content-title" style="font-size: 24px;"></span>
+					</div>
+					<div class="span4 list-content">
+						<input type="text" class="search-query" placeholder="Search">
+					</div>
+				</div>
+				<div class="row-fluid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<div class="row-fluid">
+					<div class="span3">
+						<div class="row-fluid">
+							<div class="list-content">
+								<div class="row-fluid">
+									<button class="btn btn-small btn-danger" data-toggle="modal" data-target="#myModal">
+										<i class="icon-pencil"></i> 创建
+									</button>
+							<div id="myModal" class="modal hide fade" tabindex="-1"
+								role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h3 id="myModalLabel">添加文件夹</h3>
+								</div>
+								<div class="modal-body">
+									文件夹名:<input type="text"/>
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+									<button class="btn btn-primary">保存</button>
+								</div>
+							</div>
+								</div>
+							</div>
+							<div class="new-content">
+								<button class="btn btn-small btn-primary" id="savebutton">
+									<i class="icon-ok"></i> 保存
+								</button>
+								<button class="btn btn-small" id="discardbutton">
+									<i class="icon-remove"></i> 放弃
+								</button>
+							</div>
+							<div class="detail-content">
+								<button class="btn btn-small btn-primary" id="editbutton">
+									<i class="icon-edit"></i> 编辑
+								</button>
+								<button class="btn btn-small btn-primary" id="createbutton1">
+									<i class="icon-flag"></i> 创建
+								</button>
+							</div>
+							<div class="edit-content">
+								<button class="btn btn-small btn-primary" id="savebutton1">
+									<i class="icon-ok"></i> 保存
+								</button>
+								<button class="btn btn-small" id="discardbutton1">
+									<i class="icon-remove"></i> 放弃
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="span3" style="display:none;">
+						<div class="detail-content list-content">
+							<button class="btn btn-small" id="discardbutton">
+								<i class="icon-print"></i> 打印
+							</button>
+							<div class="btn-group">
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+									更多 <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">导出</a></li>
+									<li><a href="#">删除</a></li>
+									<li><a href="#">Others</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="span4" style="display:none;">
+						<div class="list-content detail-content edit-content">
+							<span>0 / 0 &nbsp;&nbsp;</span>
+							<button class="btn">
+								<i class="icon-arrow-left"></i>
+							</button>
+							<button class="btn">
+								<i class="icon-arrow-right"></i>
+							</button>
+						</div>
+					</div>
+					<div class="span2" style="display:none;">
+						<div class="detail-content edit-content">
+							<button class="btn" id="showlist">
+								<i class="icon-list"></i>
+							</button>
+							<button class="btn" id="showdetail">
+								<i class="icon-edit"></i>
+							</button>
+						</div>
+					</div>
+				</div></div>
+			<input type="hidden" value="prodfolder" id="currentpage"> 
+			<input type="hidden" value="product" id="currentmenu"> 
+			<input type="hidden" value="文件夹" id="thistitle">
+			<div class="list-content">
+				<div class="row-fluid">
+				<table class="table table-condensed table-hover">
+					<thead>
+						<tr>
+							<th style="width: 4px"><input type="checkbox" class="ckbAll" onclick="checkAll()"/></th>
+							<th>文件夹名称</th>
+							<th>操作</th>
+						</tr>
+					<thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>图库1</td>
+							<td><a href="#" data-toggle="modal" data-target="#myModal">重命名</a>|<a href="#">删除</a>
+							<div id="myModal" class="modal hide fade" tabindex="-1"
+								role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h3 id="myModalLabel">重命名</h3>
+								</div>
+								<div class="modal-body">
+									文件夹名:<input type="text"/>
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+									<button class="btn btn-primary">保存</button>
+								</div>
+							</div>
+							</td>
+							
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>图库2</td>
+							<td><a href="#" data-toggle="modal" data-target="#myModal1">重命名</a>|<a href="#">删除</a>
+							<div id="myModal1" class="modal hide fade" tabindex="-1"
+								role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h3 id="myModalLabel">重命名</h3>
+								</div>
+								<div class="modal-body">
+									文件夹名:<input type="text"/>
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+									<button class="btn btn-primary">保存</button>
+								</div>
+							</div></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td>通用目录1</td>
+							<td><a href="#" data-toggle="modal" data-target="#myModal2">重命名</a>|<a href="#">删除</a>
+							<div id="myModal2" class="modal hide fade" tabindex="-1"
+								role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h3 id="myModalLabel">重命名</h3>
+								</div>
+								<div class="modal-body">
+									文件夹名:<input type="text"/>
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+									<button class="btn btn-primary">保存</button>
+								</div>
+							</div></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+			<div class="detail-content"></div>
+			<div class="new-content"></div>
+			<div class="edit-content"></div></div>
+		<script>
+		function checkAll(){
+			if ($(".ckbAll").attr("checked")) {
+		        $("input:checkbox").attr("checked", true);
+		    }
+		    else {
+		        $("input:checkbox").attr("checked", false);
+		    }
+		}
+
+		function del(){
+			$("input:checked").parent().parent().remove(); 	
+		};
+		
+	    require(["jquery", "domReady!"], function($){
+	    	// Initialize common buttons and views
+	    	var currentview = "";
+	    	var showview = function(view){
+	        	$(".detail-content").css("display", "none");
+	        	$(".new-content").css("display", "none");
+	            $(".list-content").css("display", "none");
+	            $(".edit-content").css("display", "none");	 
+	            $("." + view + "-content").css("display", "block");
+	            currentview = view;
+	    	};
+	        var showlist = function(){
+	        	showview("list");
+	        	$("#content-title").html($("#thistitle").val());
+	        };
+	        var showdetail = function(){
+	        	showview("detail");
+	        	$("#content-title").html($("#thistitle").val()+"&nbsp;&nbsp;/&nbsp;&nbsp;TY01");
+	        };
+	        var shownew = function(){
+	        	showview("new");
+	        	$("#content-title").html($("#thistitle").val());
+	        };
+	        var showedit = function(){
+				showview("edit");
+				$("#content-title").html($("#thistitle").val()+"&nbsp;&nbsp;/&nbsp;&nbsp;TY01");
+		    };
+	        $("#content-title").html($("#thistitle").val());
+	        $("#showlist").on("click", showlist);
+	        $("#showdetail").on("click", showdetail);
+	        $("#createbutton").on("click", shownew);
+	        $("#discardbutton").on("click", showlist);
+	        $("#savebutton").on("click", showlist);
+	        $("#editbutton").on("click", showedit);
+	        showlist();
+	        
+	    });
+		require(["jquery", "bootstrap", "datetimepicker","domReady!"], function($){
+			$('.form_date').datetimepicker({
+		        language:  'en',
+		        weekStart: 1,
+		        todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				minView: 2,
+				forceParse: 0
+		    });
+	    });
+	</script>
+		<div id="foot">
+			<script type="text/javascript" src="../js/commonactions.js"></script>
+		</div>
+</body>
